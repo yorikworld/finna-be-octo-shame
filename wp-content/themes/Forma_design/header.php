@@ -14,9 +14,8 @@
             <div class="logo-block">
                 <a id="logo" href="/"></a>
                 <div class="phone">
-<!--                    --><?php //$tel =  (simple_fields_fieldgroup('telephone',7));
-//                    echo $tel['telephone_slug'];?><!--</div>-->
-                </div>
+                    <?php $tel =  (simple_fields_fieldgroup('telephone',7));
+                    echo $tel['telephone_slug'];?></div>
             </div>
             <div class="menu-area">
                 <ul class="main-menu">
