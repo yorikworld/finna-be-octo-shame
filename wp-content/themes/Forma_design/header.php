@@ -14,13 +14,13 @@
             <div class="logo-block">
                 <a id="logo" href="/"></a>
                 <div class="phone">
-                    <?php $tel =  (simple_fields_fieldgroup('telephone',7));
-                    echo $tel['telephone_slug'];?></div>
+                    <?php echo (simple_fields_fieldgroup('telephone',7));?>
+                    </div>
             </div>
             <div class="menu-area">
                 <ul class="main-menu">
                     <li class="active"><a href="/">Форма</a></li>
-                    <li><a href="#">Форма спорт</a></li>
+                    <li><a href="page-catalog.php">Форма спорт</a></li>
                     <li><a href="#">Аксессуары</a></li>
                     <li><a href="#">Sale</a></li>
                     <li><a href="#">О нас</a></li>
