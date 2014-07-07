@@ -11,7 +11,7 @@
                 <li><a href="#">Контакты</a></li>
             </ul>
             <div class="call">
-                <p>+7 (903) 287 22 44</p>
+                <p><?php echo (simple_fields_fieldgroup('telephone',7));?></p>
                 <a href="#">перезвоните мне!</a>
             </div>
             <p>г. Москва, 2-ой Волконский пер. д1</p>

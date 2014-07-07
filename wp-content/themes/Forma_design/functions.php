@@ -5,6 +5,13 @@
  * Date: 26.06.14
  * Time: 20:32
  */
+if (function_exists('add_theme_support')) {
+    add_theme_support('menus');
+}
+register_nav_menus( array(
+    'main_menu' => 'Главное меню',
+    'footer_menu' => 'Нижнее меню'
+) );
 function theme_scripts() {
     global $wp_styles;
     global $wp_scripts;
@@ -52,3 +59,67 @@ function create_post_type() { // создаем новый тип записи
 }
 
 add_action( 'init', 'create_post_type' ); // инициируем добавления типа
+
+function products() { // создаем новый тип записи
+    register_post_type( 'products', // указываем названия типа
+        array(
+            'labels' => array(
+                'name' => __( 'Продукты' ), // даем названия разделу для панели управления
+                'singular_name' => __( 'Продукты' ), // даем названия одной записи
+                'add_new' => __('Добавить'),// далее полная русификация админ. панели
+                'add_new_item' => __('Добавить продукты'),
+                'edit_item' => __('Редактировать продукт'),
+                'new_item' => __('Новые продукты'),
+                'all_items' => __('Все продукты'),
+                'view_item' => __('Просмотр продуктов'),
+                'search_items' => __('Поиск продуктов'),
+                'not_found' => __('Нет продуктов'),
+                'not_found_in_trash' => __('продукты не найдены'),
+                'menu_name' => 'Продукты'
+
+            ),
+            'public' => true,
+            'menu_position' => 6, // указываем место в левой баковой панели
+            'rewrite' => array('slug' => 'products'), // указываем slug для ссылок например: mysite/reviews/
+            'supports' => array('title','editor','thumbnail'), // тут мы активируем поддержку миниатюр
+            'taxonomies' => array('genre'),
+        )
+    );
+}
+
+add_action( 'init', 'products' ); // инициируем добавления типа
+
+
+// hook into the init action and call create_book_taxonomies when it fires
+add_action( 'init', 'create_book_taxonomies', 0 );
+
+// create two taxonomies, genres and writers for the post type "book"
+function create_book_taxonomies() {
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name'              => _x( 'Категории', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Категории', 'taxonomy singular name' ),
+        'search_items'      => __( 'Поиск категории' ),
+        'all_items'         => __( 'Все категории' ),
+        'parent_item'       => __( 'Родительская категория' ),
+        'parent_item_colon' => __( 'Parent Genre:' ),
+        'edit_item'         => __( 'Редактировать' ),
+        'update_item'       => __( 'Обновить' ),
+        'add_new_item'      => __( 'Добавить новую категорию' ),
+        'new_item_name'     => __( 'Имя новой категории' ),
+        'menu_name'         => __( 'Категории' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'genre' )
+    );
+
+    register_taxonomy( 'genre', array( 'book' ), $args );
+}
+///add_theme_support('post-thumbnails'); // поддержка миниатюр
+///set_post_thumbnail_size(540, 230, false);
