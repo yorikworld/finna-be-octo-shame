@@ -121,5 +121,5 @@ function create_book_taxonomies() {
 
     register_taxonomy( 'genre', array( 'book' ), $args );
 }
-///add_theme_support('post-thumbnails'); // поддержка миниатюр
-///set_post_thumbnail_size(540, 230, false);
+add_theme_support('post-thumbnails'); // поддержка миниатюр
+set_post_thumbnail_size(288, 177, false);
