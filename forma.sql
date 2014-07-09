@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июл 09 2014 г., 13:49
+-- Время создания: Июл 09 2014 г., 14:33
 -- Версия сервера: 5.5.37-0ubuntu0.13.10.1
 -- Версия PHP: 5.5.3-1ubuntu2.5
 
@@ -275,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=331 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=395 ;
 
 --
 -- Дамп данных таблицы `wp_postmeta`
@@ -334,11 +334,10 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (96, 19, '_wp_trash_meta_time', '1404574336'),
 (97, 21, '_edit_last', '1'),
 (98, 21, '_simple_fields_selected_connector', '4'),
-(99, 21, '_edit_lock', '1404900486:1'),
+(99, 21, '_edit_lock', '1404916193:1'),
 (100, 21, '_simple_fields_been_saved', '1'),
 (129, 25, '_wp_attached_file', '2014/07/P9191978.jpg'),
 (130, 25, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:3072;s:6:"height";i:2304;s:4:"file";s:20:"2014/07/P9191978.jpg";s:5:"sizes";a:4:{s:9:"thumbnail";a:4:{s:4:"file";s:20:"P9191978-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:20:"P9191978-300x225.jpg";s:5:"width";i:300;s:6:"height";i:225;s:9:"mime-type";s:10:"image/jpeg";}s:5:"large";a:4:{s:4:"file";s:21:"P9191978-1024x768.jpg";s:5:"width";i:1024;s:6:"height";i:768;s:9:"mime-type";s:10:"image/jpeg";}s:14:"post-thumbnail";a:4:{s:4:"file";s:20:"P9191978-306x230.jpg";s:5:"width";i:306;s:6:"height";i:230;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";d:5;s:6:"credit";s:0:"";s:6:"camera";s:10:"FE240/X795";s:7:"caption";s:0:"";s:17:"created_timestamp";i:1316424319;s:9:"copyright";s:0:"";s:12:"focal_length";s:2:"32";s:3:"iso";s:3:"100";s:13:"shutter_speed";s:5:"0.004";s:5:"title";s:22:"OLYMPUS DIGITAL CAMERA";}}'),
-(132, 21, '_thumbnail_id', '25'),
 (145, 26, '_wp_trash_meta_status', 'auto-draft'),
 (146, 26, '_wp_trash_meta_time', '1404581351'),
 (159, 27, '_menu_item_type', 'taxonomy'),
@@ -415,34 +414,36 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (274, 9, '_simple_fields_fieldGroupID_2_fieldID_3_numInSet_1', '11'),
 (275, 9, '_simple_fields_fieldGroupID_2_fieldID_4_numInSet_0', 'http://www.google.com'),
 (276, 9, '_simple_fields_fieldGroupID_2_fieldID_4_numInSet_1', 'http://ya.ru'),
-(277, 21, '_simple_fields_fieldGroupID_7_fieldID_added_numInSet_0', '1'),
-(278, 21, '_simple_fields_fieldGroupID_7_fieldID_1_numInSet_0', 'Красный'),
-(279, 21, '_simple_fields_fieldGroupID_6_fieldID_added_numInSet_0', '1'),
-(280, 21, '_simple_fields_fieldGroupID_6_fieldID_2_numInSet_0', '42'),
 (281, 37, '_edit_last', '1'),
-(282, 37, '_edit_lock', '1404910977:1'),
+(282, 37, '_edit_lock', '1404915796:1'),
 (283, 38, '_wp_attached_file', '2014/07/Снимок.png'),
 (284, 38, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1920;s:6:"height";i:1080;s:4:"file";s:24:"2014/07/Снимок.png";s:5:"sizes";a:4:{s:9:"thumbnail";a:4:{s:4:"file";s:24:"Снимок-150x150.png";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";}s:6:"medium";a:4:{s:4:"file";s:24:"Снимок-300x168.png";s:5:"width";i:300;s:6:"height";i:168;s:9:"mime-type";s:9:"image/png";}s:5:"large";a:4:{s:4:"file";s:25:"Снимок-1024x576.png";s:5:"width";i:1024;s:6:"height";i:576;s:9:"mime-type";s:9:"image/png";}s:14:"post-thumbnail";a:4:{s:4:"file";s:24:"Снимок-288x162.png";s:5:"width";i:288;s:6:"height";i:162;s:9:"mime-type";s:9:"image/png";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}'),
 (285, 37, '_thumbnail_id', '38'),
 (286, 37, '_simple_fields_selected_connector', '4'),
 (287, 39, '_edit_last', '1'),
-(288, 39, '_edit_lock', '1404913083:1'),
+(288, 39, '_edit_lock', '1404915792:1'),
 (290, 39, '_simple_fields_selected_connector', '__none__'),
 (291, 41, '_edit_last', '1'),
-(292, 41, '_edit_lock', '1404910926:1'),
+(292, 41, '_edit_lock', '1404915787:1'),
 (293, 42, '_wp_attached_file', '2014/07/de_stromenko.jpg'),
 (294, 42, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1440;s:6:"height";i:900;s:4:"file";s:24:"2014/07/de_stromenko.jpg";s:5:"sizes";a:4:{s:9:"thumbnail";a:4:{s:4:"file";s:24:"de_stromenko-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:24:"de_stromenko-300x187.jpg";s:5:"width";i:300;s:6:"height";i:187;s:9:"mime-type";s:10:"image/jpeg";}s:5:"large";a:4:{s:4:"file";s:25:"de_stromenko-1024x640.jpg";s:5:"width";i:1024;s:6:"height";i:640;s:9:"mime-type";s:10:"image/jpeg";}s:14:"post-thumbnail";a:4:{s:4:"file";s:24:"de_stromenko-283x177.jpg";s:5:"width";i:283;s:6:"height";i:177;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}'),
 (295, 41, '_thumbnail_id', '42'),
 (296, 41, '_simple_fields_selected_connector', '4'),
 (297, 39, '_simple_fields_been_saved', '1'),
 (315, 43, '_edit_last', '1'),
-(316, 43, '_edit_lock', '1404913233:1'),
+(316, 43, '_edit_lock', '1404916002:1'),
 (320, 43, '_simple_fields_selected_connector', '4'),
-(322, 45, '_wp_attached_file', '2014/07/6fmPJIOGJMI.jpg'),
-(323, 45, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1448;s:6:"height";i:2048;s:4:"file";s:23:"2014/07/6fmPJIOGJMI.jpg";s:5:"sizes";a:4:{s:9:"thumbnail";a:4:{s:4:"file";s:23:"6fmPJIOGJMI-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:23:"6fmPJIOGJMI-212x300.jpg";s:5:"width";i:212;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:5:"large";a:4:{s:4:"file";s:24:"6fmPJIOGJMI-724x1024.jpg";s:5:"width";i:724;s:6:"height";i:1024;s:9:"mime-type";s:10:"image/jpeg";}s:14:"post-thumbnail";a:4:{s:4:"file";s:23:"6fmPJIOGJMI-125x177.jpg";s:5:"width";i:125;s:6:"height";i:177;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}'),
 (328, 46, '_wp_attached_file', '2014/07/mitsubishi-lancer-x-p942b.jpg'),
 (329, 46, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1000;s:6:"height";i:365;s:4:"file";s:37:"2014/07/mitsubishi-lancer-x-p942b.jpg";s:5:"sizes";a:3:{s:9:"thumbnail";a:4:{s:4:"file";s:37:"mitsubishi-lancer-x-p942b-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:37:"mitsubishi-lancer-x-p942b-300x109.jpg";s:5:"width";i:300;s:6:"height";i:109;s:9:"mime-type";s:10:"image/jpeg";}s:14:"post-thumbnail";a:4:{s:4:"file";s:37:"mitsubishi-lancer-x-p942b-288x105.jpg";s:5:"width";i:288;s:6:"height";i:105;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}'),
-(330, 39, '_thumbnail_id', '46');
+(330, 39, '_thumbnail_id', '46'),
+(332, 47, '_wp_attached_file', '2014/07/загруженное.jpg'),
+(333, 47, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:255;s:6:"height";i:198;s:4:"file";s:34:"2014/07/загруженное.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:4:{s:4:"file";s:34:"загруженное-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:14:"post-thumbnail";a:4:{s:4:"file";s:34:"загруженное-227x177.jpg";s:5:"width";i:227;s:6:"height";i:177;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}'),
+(334, 43, '_thumbnail_id', '47'),
+(390, 21, '_thumbnail_id', '25'),
+(391, 21, '_simple_fields_fieldGroupID_7_fieldID_added_numInSet_0', '1'),
+(392, 21, '_simple_fields_fieldGroupID_7_fieldID_1_numInSet_0', 'Красный'),
+(393, 21, '_simple_fields_fieldGroupID_6_fieldID_added_numInSet_0', '1'),
+(394, 21, '_simple_fields_fieldGroupID_6_fieldID_2_numInSet_0', '42');
 
 -- --------------------------------------------------------
 
@@ -479,7 +480,7 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
 
 --
 -- Дамп данных таблицы `wp_posts`
@@ -504,7 +505,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (18, 1, '2014-07-05 19:31:05', '2014-07-05 15:31:05', '', 'Черновик', '', 'trash', 'open', 'open', '', 'chernovik', '', '', '2014-07-05 19:31:14', '2014-07-05 15:31:14', '', 0, 'http://forma.com/?post_type=products&#038;p=18', 0, 'products', '', 0),
 (19, 1, '2014-07-05 19:32:13', '2014-07-05 15:32:13', '', 'Черновик', '', 'trash', 'open', 'open', '', 'chernovik-2', '', '', '2014-07-05 19:32:16', '2014-07-05 15:32:16', '', 0, 'http://forma.com/?post_type=products&#038;p=19', 0, 'products', '', 0),
 (20, 1, '2014-07-05 19:33:40', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-07-05 19:33:40', '0000-00-00 00:00:00', '', 0, 'http://forma.com/?post_type=products&p=20', 0, 'products', '', 0),
-(21, 1, '2014-07-05 20:00:24', '2014-07-05 16:00:24', 'Описание товара', 'футболка', '', 'publish', 'closed', 'closed', '', '21', '', '', '2014-07-09 13:09:35', '2014-07-09 09:09:35', '', 0, 'http://forma.com/?post_type=products&#038;p=21', 0, 'products', '', 0),
+(21, 1, '2014-07-05 20:00:24', '2014-07-05 16:00:24', 'Описание товара', 'футболка', '', 'publish', 'closed', 'closed', '', '21', '', '', '2014-07-09 18:32:10', '2014-07-09 14:32:10', '', 0, 'http://forma.com/?post_type=products&#038;p=21', 0, 'products', '', 0),
 (22, 1, '2014-07-05 20:01:26', '2014-07-05 16:01:26', 'Описание товара', 'футболка', '', 'inherit', 'open', 'open', '', '21-autosave-v1', '', '', '2014-07-05 20:01:26', '2014-07-05 16:01:26', '', 21, 'http://forma.com/21-autosave-v1/', 0, 'revision', '', 0),
 (23, 1, '2014-07-05 20:13:15', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-07-05 20:13:15', '0000-00-00 00:00:00', '', 0, 'http://forma.com/?p=23', 0, 'post', '', 0),
 (24, 1, '2014-07-05 20:44:10', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-07-05 20:44:10', '0000-00-00 00:00:00', '', 0, 'http://forma.com/?p=24', 0, 'post', '', 0),
@@ -525,9 +526,42 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (40, 1, '2014-07-09 14:08:43', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-07-09 14:08:43', '0000-00-00 00:00:00', '', 0, 'http://forma.com/?post_type=products&p=40', 0, 'products', '', 0),
 (41, 1, '2014-07-09 14:15:14', '2014-07-09 10:15:14', 'Описание Майка', 'Майка', '', 'publish', 'closed', 'closed', '', 'majka', '', '', '2014-07-09 14:15:14', '2014-07-09 10:15:14', '', 0, 'http://forma.com/?post_type=products&#038;p=41', 0, 'products', '', 0),
 (42, 1, '2014-07-09 14:15:08', '2014-07-09 10:15:08', '', 'de_stromenko', '', 'inherit', 'open', 'open', '', 'de_stromenko', '', '', '2014-07-09 14:15:08', '2014-07-09 10:15:08', '', 41, 'http://forma.com/wp-content/uploads/2014/07/de_stromenko.jpg', 0, 'attachment', 'image/jpeg', 0),
-(43, 1, '2014-07-09 17:10:02', '2014-07-09 13:10:02', 'ываывпфп', 'Еще что то', '', 'publish', 'closed', 'closed', '', 'eshhe-chto-to', '', '', '2014-07-09 17:12:49', '2014-07-09 13:12:49', '', 0, 'http://forma.com/?post_type=products&#038;p=43', 0, 'products', '', 0),
-(45, 1, '2014-07-09 17:36:56', '2014-07-09 13:36:56', '', '6fmPJIOGJMI', '', 'inherit', 'open', 'open', '', '6fmpjiogjmi', '', '', '2014-07-09 17:36:56', '2014-07-09 13:36:56', '', 39, 'http://forma.com/wp-content/uploads/2014/07/6fmPJIOGJMI.jpg', 0, 'attachment', 'image/jpeg', 0),
-(46, 1, '2014-07-09 17:40:04', '2014-07-09 13:40:04', '', 'mitsubishi-lancer-x-p942b', '', 'inherit', 'open', 'open', '', 'mitsubishi-lancer-x-p942b', '', '', '2014-07-09 17:40:04', '2014-07-09 13:40:04', '', 39, 'http://forma.com/wp-content/uploads/2014/07/mitsubishi-lancer-x-p942b.jpg', 0, 'attachment', 'image/jpeg', 0);
+(43, 1, '2014-07-09 17:10:02', '2014-07-09 13:10:02', 'ываывпфп', 'Еще что то', '', 'publish', 'closed', 'closed', '', 'eshhe-chto-to', '', '', '2014-07-09 18:28:54', '2014-07-09 14:28:54', '', 0, 'http://forma.com/?post_type=products&#038;p=43', 0, 'products', '', 0),
+(46, 1, '2014-07-09 17:40:04', '2014-07-09 13:40:04', '', 'mitsubishi-lancer-x-p942b', '', 'inherit', 'open', 'open', '', 'mitsubishi-lancer-x-p942b', '', '', '2014-07-09 17:40:04', '2014-07-09 13:40:04', '', 39, 'http://forma.com/wp-content/uploads/2014/07/mitsubishi-lancer-x-p942b.jpg', 0, 'attachment', 'image/jpeg', 0),
+(47, 1, '2014-07-09 18:28:45', '2014-07-09 14:28:45', '', 'загруженное', '', 'inherit', 'open', 'open', '', 'zagruzhennoe', '', '', '2014-07-09 18:28:45', '2014-07-09 14:28:45', '', 43, 'http://forma.com/wp-content/uploads/2014/07/загруженное.jpg', 0, 'attachment', 'image/jpeg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `wp_terms`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_terms` (
+  `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL DEFAULT '',
+  `slug` varchar(200) NOT NULL DEFAULT '',
+  `term_group` bigint(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`term_id`),
+  UNIQUE KEY `slug` (`slug`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Дамп данных таблицы `wp_terms`
+--
+
+INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
+(1, 'Без рубрики', '%d0%b1%d0%b5%d0%b7-%d1%80%d1%83%d0%b1%d1%80%d0%b8%d0%ba%d0%b8', 0),
+(2, 'Женская одежда', 'zhenskaya', 0),
+(3, 'одежда', 'odezhda', 0),
+(4, 'Мужская одежда', 'muzhskaya-odezhda', 0),
+(6, 'Осенняя коллекция', 'osennyaya-kollekciya', 0),
+(7, 'Зимняя коллекция', 'zimnyaya-kollekciya', 0),
+(8, 'Весенняя коллекция', 'vesennyaya-kollekciya', 0),
+(9, 'Осенняя коллекция', 'osennyaya-kollekciya-muzhskaya-odezhda', 0),
+(10, 'Зимняя коллекция', 'zimnyaya-kollekciya-muzhskaya-odezhda', 0),
+(11, 'Весенняя коллекция', 'vesennyaya-kollekciya-muzhskaya-odezhda', 0),
+(12, 'jjhghgh', 'jjhghgh', 0);
 
 -- --------------------------------------------------------
 
@@ -610,39 +644,6 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `wp_terms`
---
-
-CREATE TABLE IF NOT EXISTS `wp_terms` (
-  `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL DEFAULT '',
-  `slug` varchar(200) NOT NULL DEFAULT '',
-  `term_group` bigint(10) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`term_id`),
-  UNIQUE KEY `slug` (`slug`),
-  KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
-
---
--- Дамп данных таблицы `wp_terms`
---
-
-INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
-(1, 'Без рубрики', '%d0%b1%d0%b5%d0%b7-%d1%80%d1%83%d0%b1%d1%80%d0%b8%d0%ba%d0%b8', 0),
-(2, 'Женская одежда', 'zhenskaya', 0),
-(3, 'одежда', 'odezhda', 0),
-(4, 'Мужская одежда', 'muzhskaya-odezhda', 0),
-(6, 'Осенняя коллекция', 'osennyaya-kollekciya', 0),
-(7, 'Зимняя коллекция', 'zimnyaya-kollekciya', 0),
-(8, 'Весенняя коллекция', 'vesennyaya-kollekciya', 0),
-(9, 'Осенняя коллекция', 'osennyaya-kollekciya-muzhskaya-odezhda', 0),
-(10, 'Зимняя коллекция', 'zimnyaya-kollekciya-muzhskaya-odezhda', 0),
-(11, 'Весенняя коллекция', 'vesennyaya-kollekciya-muzhskaya-odezhda', 0),
-(12, 'jjhghgh', 'jjhghgh', 0);
-
--- --------------------------------------------------------
-
---
 -- Структура таблицы `wp_usermeta`
 --
 
@@ -715,202 +716,6 @@ CREATE TABLE IF NOT EXISTS `wp_users` (
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
 (1, 'admin', '$P$By5yMKdHiWaCmNDY.lNqSw5wL0kzEJ0', 'admin', 'yorikworld@gmail.com', '', '2014-06-25 20:30:03', '', 0, 'admin');
---
--- База данных: `phpmyadmin`
---
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_bookmark`
---
-
-CREATE TABLE IF NOT EXISTS `pma_bookmark` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `query` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_column_info`
---
-
-CREATE TABLE IF NOT EXISTS `pma_column_info` (
-  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_designer_coords`
---
-
-CREATE TABLE IF NOT EXISTS `pma_designer_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `x` int(11) DEFAULT NULL,
-  `y` int(11) DEFAULT NULL,
-  `v` tinyint(4) DEFAULT NULL,
-  `h` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`db_name`,`table_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for Designer';
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_history`
---
-
-CREATE TABLE IF NOT EXISTS `pma_history` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `sqlquery` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`,`db`,`table`,`timevalue`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_pdf_pages`
---
-
-CREATE TABLE IF NOT EXISTS `pma_pdf_pages` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `page_nr` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  PRIMARY KEY (`page_nr`),
-  KEY `db_name` (`db_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_recent`
---
-
-CREATE TABLE IF NOT EXISTS `pma_recent` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tables` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_relation`
---
-
-CREATE TABLE IF NOT EXISTS `pma_relation` (
-  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`master_db`,`master_table`,`master_field`),
-  KEY `foreign_field` (`foreign_db`,`foreign_table`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_table_coords`
---
-
-CREATE TABLE IF NOT EXISTS `pma_table_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
-  `x` float unsigned NOT NULL DEFAULT '0',
-  `y` float unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_table_info`
---
-
-CREATE TABLE IF NOT EXISTS `pma_table_info` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`db_name`,`table_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_table_uiprefs`
---
-
-CREATE TABLE IF NOT EXISTS `pma_table_uiprefs` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `prefs` text COLLATE utf8_bin NOT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`username`,`db_name`,`table_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_tracking`
---
-
-CREATE TABLE IF NOT EXISTS `pma_tracking` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `version` int(10) unsigned NOT NULL,
-  `date_created` datetime NOT NULL,
-  `date_updated` datetime NOT NULL,
-  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
-  `schema_sql` text COLLATE utf8_bin,
-  `data_sql` longtext COLLATE utf8_bin,
-  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
-  `tracking_active` int(1) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`db_name`,`table_name`,`version`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT COMMENT='Database changes tracking for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `pma_userconfig`
---
-
-CREATE TABLE IF NOT EXISTS `pma_userconfig` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `config_data` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
-
---
--- Дамп данных таблицы `pma_userconfig`
---
-
-INSERT INTO `pma_userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2014-07-04 06:39:14', '{"lang":"ru"}');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
