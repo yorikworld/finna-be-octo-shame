@@ -24,15 +24,26 @@ get_header()?>
                     </div>
                     <div class="content-main">
                         <ul class="catalog">
-                            <li><a href="#"><img src="<?php echo get_bloginfo( 'stylesheet_directory') ?>/img/catalog-pic.png" height="288" width="177" alt="" /></a></li>
-                            <li><a href="#"><img src="<?php echo get_bloginfo( 'stylesheet_directory') ?>/img/catalog-pic2.png" height="288" width="177" alt="" /></a></li>
-                            <li><a href="#"><img src="<?php echo get_bloginfo( 'stylesheet_directory') ?>/img/catalog-pic.png" height="288" width="177" alt="" /></a></li>
-                            <li><a href="#"><img src="<?php echo get_bloginfo( 'stylesheet_directory') ?>/img/catalog-pic3.png" height="288" width="177" alt="" /></a></li>
-                            <li><a href="#"><img src="<?php echo get_bloginfo( 'stylesheet_directory') ?>/img/catalog-pic.png" height="288" width="177" alt="" /></a></li>
-                            <li><a href="#"><img src="<?php echo get_bloginfo( 'stylesheet_directory') ?>/img/catalog-pic2.png" height="288" width="177" alt="" /></a></li>
-                            <li><a href="#"><img src="<?php echo get_bloginfo( 'stylesheet_directory') ?>/img/catalog-pic3.png" height="288" width="177" alt="" /></a></li>
-                            <li><a href="#"><img src="<?php echo get_bloginfo( 'stylesheet_directory') ?>/img/catalog-pic.png" height="288" width="177" alt="" /></a></li>
-                            <li><a href="#"><img src="<?php echo get_bloginfo( 'stylesheet_directory') ?>/img/catalog-pic3.png" height="288" width="177" alt="" /></a></li>
+                            <?php $args = array(
+                                'post_type' => 'products',
+                            );?>
+                            <?php $the_query = new WP_Query($args); ?>
+                            <?php if ($the_query->have_posts()) {
+                                while ($the_query->have_posts()) {
+                                    $the_query->the_post();?>
+
+                                    <?php if (has_post_thumbnail()) { ?>
+                                        <li><a href="<?php the_permalink(); ?>"><img
+                                                src="/timthumb.php?src=<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>&w=177&h=288&a=tc"/></a>
+                                        </li>
+                                    <?php
+                                    }
+                                    else {?>
+                                        <li><a href="<?php the_permalink(); ?>"><img src="/timthumb.php?src=/wp-content/uploads/noimage.jpg&w=177&h=288&a=tc"/></a>
+
+                                    <?php }
+                                }
+                            }; ?>
                         </ul>
                     </div>
                 </div>

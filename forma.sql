@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6deb1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июл 09 2014 г., 14:33
--- Версия сервера: 5.5.37-0ubuntu0.13.10.1
--- Версия PHP: 5.5.3-1ubuntu2.5
+-- Время создания: Июл 09 2014 г., 22:57
+-- Версия сервера: 5.5.37-0ubuntu0.14.04.1
+-- Версия PHP: 5.5.9-1ubuntu4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
   `autoload` varchar(20) NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=287 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=292 ;
 
 --
 -- Дамп данных таблицы `wp_options`
@@ -211,17 +211,17 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (93, 'widget_archives', 'a:2:{i:2;a:3:{s:5:"title";s:0:"";s:5:"count";i:0;s:8:"dropdown";i:0;}s:12:"_multiwidget";i:1;}', 'yes'),
 (94, 'widget_meta', 'a:2:{i:2;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
 (95, 'sidebars_widgets', 'a:3:{s:19:"wp_inactive_widgets";a:0:{}s:18:"orphaned_widgets_1";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}s:13:"array_version";i:3;}', 'yes'),
-(96, 'cron', 'a:5:{i:1404920880;a:1:{s:20:"wp_maybe_auto_update";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1404933299;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1404937808;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1404937831;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
+(96, 'cron', 'a:5:{i:1404937808;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1404937831;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1404964080;a:1:{s:20:"wp_maybe_auto_update";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1405019699;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
 (98, '_transient_random_seed', '742db1f9ea1ae5dc1ab20995cd04afe6', 'yes'),
 (99, 'auth_key', 'Y6kZ,tYrC+mC/>sR7.&hFVH`:=l=Y6F:@AGsztY9a&Lh#B6`w-MCvKuVB/8pKC9H', 'yes'),
-(100, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:2:{i:0;O:8:"stdClass":10:{s:8:"response";s:6:"latest";s:8:"download";s:65:"https://downloads.wordpress.org/release/ru_RU/wordpress-3.9.1.zip";s:6:"locale";s:5:"ru_RU";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:65:"https://downloads.wordpress.org/release/ru_RU/wordpress-3.9.1.zip";s:10:"no_content";b:0;s:11:"new_bundled";b:0;s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"3.9.1";s:7:"version";s:5:"3.9.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.8";s:15:"partial_version";s:0:"";}i:1;O:8:"stdClass":10:{s:8:"response";s:6:"latest";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-3.9.1.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-3.9.1.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-3.9.1-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-3.9.1-new-bundled.zip";s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"3.9.1";s:7:"version";s:5:"3.9.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.8";s:15:"partial_version";s:0:"";}}s:12:"last_checked";i:1404894619;s:15:"version_checked";s:5:"3.9.1";s:12:"translations";a:0:{}}', 'yes'),
+(100, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:2:{i:0;O:8:"stdClass":10:{s:8:"response";s:6:"latest";s:8:"download";s:65:"https://downloads.wordpress.org/release/ru_RU/wordpress-3.9.1.zip";s:6:"locale";s:5:"ru_RU";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:65:"https://downloads.wordpress.org/release/ru_RU/wordpress-3.9.1.zip";s:10:"no_content";b:0;s:11:"new_bundled";b:0;s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"3.9.1";s:7:"version";s:5:"3.9.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.8";s:15:"partial_version";s:0:"";}i:1;O:8:"stdClass":10:{s:8:"response";s:6:"latest";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-3.9.1.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-3.9.1.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-3.9.1-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-3.9.1-new-bundled.zip";s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"3.9.1";s:7:"version";s:5:"3.9.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.8";s:15:"partial_version";s:0:"";}}s:12:"last_checked";i:1404927055;s:15:"version_checked";s:5:"3.9.1";s:12:"translations";a:0:{}}', 'yes'),
 (101, 'auth_salt', '.RPk oL@mz8`a;D?.V<P6A(%H6%+HWDK?RP3Pgo9qts>sR_S<n~!N7[OAa9toTn&', 'yes'),
 (102, 'logged_in_key', 't<3_QJVpUZ>sIxM#.VsZ06h%|Sry$pp+CkeGH=2,vIP<6+wHC~Qzy4h<?@**(-{E', 'yes'),
 (103, 'logged_in_salt', '4R@f`;=EQb3!L/ZSfv6,P17J4eW(imu}/1];)SQFDl.P*k:9lC$5aYr=[T!V0us-', 'yes'),
 (104, 'nonce_key', '3Nl%3Bb5lV6KXod+vb49+HhkLV;l?$l1z]!~,[rZH</?dx.FQ<q]V#*$W&-s#%h$', 'yes'),
 (105, 'nonce_salt', 'LLDJW+OcOPqZFj=ED;1?|o-f<@,XlxK4GDA_;-_%l-,q_NTnf[zaN2ZyEAFbGd/1', 'yes'),
-(106, '_site_transient_update_plugins', 'O:8:"stdClass":3:{s:12:"last_checked";i:1404894624;s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
-(110, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1404894626;s:7:"checked";a:4:{s:12:"Forma_design";s:0:"";s:14:"twentyfourteen";s:3:"1.1";s:14:"twentythirteen";s:3:"1.2";s:12:"twentytwelve";s:3:"1.4";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
+(106, '_site_transient_update_plugins', 'O:8:"stdClass":3:{s:12:"last_checked";i:1404927056;s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
+(110, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1404927056;s:7:"checked";a:4:{s:12:"Forma_design";s:0:"";s:14:"twentyfourteen";s:3:"1.1";s:14:"twentythirteen";s:3:"1.2";s:12:"twentytwelve";s:3:"1.4";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
 (113, 'can_compress_scripts', '0', 'yes'),
 (131, 'theme_mods_twentyfourteen', 'a:1:{s:16:"sidebars_widgets";a:2:{s:4:"time";i:1403728404;s:4:"data";a:4:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}s:9:"sidebar-2";a:0:{}s:9:"sidebar-3";a:0:{}}}}', 'yes'),
 (132, 'current_theme', 'forma', 'yes'),
@@ -258,8 +258,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (280, '_transient_plugin_slugs', 'a:5:{i:0;s:19:"akismet/akismet.php";i:1;s:36:"contact-form-7/wp-contact-form-7.php";i:2;s:9:"hello.php";i:3;s:23:"rustolat/rus-to-lat.php";i:4;s:31:"simple-fields/simple_fields.php";}', 'no'),
 (281, '_transient_timeout_dash_4077549d03da2e451c8b5f002294ff51', '1404931620', 'no'),
 (282, '_transient_dash_4077549d03da2e451c8b5f002294ff51', '<div class="rss-widget"><ul><li><a class=''rsswidget'' href=''http://wordpress.org/news/2014/05/wordpress-3-9-1/''>WordPress 3.9.1 Maintenance Release</a> <span class="rss-date">08.05.2014</span><div class="rssSummary">After three weeks and more than 9 million downloads of WordPress 3.9, we’re pleased to announce that WordPress 3.9.1 is now available. This maintenance release fixes 34 bugs in 3.9, including numerous fixes for multisite networks, customizing widgets while previewing themes, and the updated visual editor. We’ve also made some improvements to the new audio/vi</div></li></ul></div><div class="rss-widget"><ul><li><a class=''rsswidget'' href=''http://www.poststat.us/syed-balkhi-thomas-griffin-awesome-motive/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=syed-balkhi-thomas-griffin-awesome-motive'' title=''Syed Balkhi and Thomas Griffin first partnered together when they created Floating Social Bar, a free WordPress social sharing plugin. They decided to collaborate after meeting and getting along at WordCamp Raleigh. From there, their relationship blossomed, and they decided to create a second product together. Syed specializes in marketing and business devel''>Post Status: Syed Balkhi and Thomas Griffin are joining forces</a></li><li><a class=''rsswidget'' href=''http://wordpress.tv/2014/07/08/wordcamp-kansai-2014%E3%83%87%E3%82%B6%E3%82%A4%E3%83%8A%E3%83%BC%E3%81%8C%E6%84%9F%E3%81%98%E3%81%9Fgpl%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%81%A8wordpress/'' title=''''>WordPress.tv: WordCamp Kansai 2014デザイナーが感じたGPLライセンスとWordPress</a></li><li><a class=''rsswidget'' href=''http://wptavern.com/proposed-customizer-improvements-for-wordpress-4-0-land-amid-concerns-over-underlying-architectural-problems?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=proposed-customizer-improvements-for-wordpress-4-0-land-amid-concerns-over-underlying-architectural-problems'' title=''photo credit: beccaplusmolly – cc When widgets were added to the customizer in 3.9, WordPress users were generally surprised and delighted. Live previews are so beneficial to the editing experience that contributors are starting to pursue an expansion of the role of the customizer into all aspects of WordPress. Nick Halsey has been working extensively with t''>WPTavern: Proposed Customizer Improvements for WordPress 4.0 Land Amid Concerns Over Underlying Architectural Problems</a></li></ul></div><div class="rss-widget"><ul><li class=''dashboard-news-plugin''><span>Популярный плагин:</span> <a href=''http://wordpress.org/plugins/woocommerce/'' class=''dashboard-news-plugin-link''>WooCommerce - excelling eCommerce</a>&nbsp;<span>(<a href=''plugin-install.php?tab=plugin-information&amp;plugin=woocommerce&amp;_wpnonce=c176836d16&amp;TB_iframe=true&amp;width=600&amp;height=800'' class=''thickbox'' title=''WooCommerce - excelling eCommerce''>Установить</a>)</span></li></ul></div>', 'no'),
-(285, '_site_transient_timeout_theme_roots', '1404896420', 'yes'),
-(286, '_site_transient_theme_roots', 'a:4:{s:12:"Forma_design";s:7:"/themes";s:14:"twentyfourteen";s:7:"/themes";s:14:"twentythirteen";s:7:"/themes";s:12:"twentytwelve";s:7:"/themes";}', 'yes');
+(289, '_site_transient_timeout_theme_roots', '1404928852', 'yes'),
+(290, '_site_transient_theme_roots', 'a:4:{s:12:"Forma_design";s:7:"/themes";s:14:"twentyfourteen";s:7:"/themes";s:14:"twentythirteen";s:7:"/themes";s:12:"twentytwelve";s:7:"/themes";}', 'yes');
 
 -- --------------------------------------------------------
 
@@ -275,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=395 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=422 ;
 
 --
 -- Дамп данных таблицы `wp_postmeta`
@@ -303,7 +303,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (19, 7, '_simple_fields_been_saved', '1'),
 (32, 9, '_edit_last', '1'),
 (33, 9, '_simple_fields_selected_connector', '2'),
-(34, 9, '_edit_lock', '1404896370:1'),
+(34, 9, '_edit_lock', '1404927509:1'),
 (37, 11, '_wp_attached_file', '2014/07/P9192019.jpg'),
 (38, 11, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:3072;s:6:"height";i:2304;s:4:"file";s:20:"2014/07/P9192019.jpg";s:5:"sizes";a:3:{s:9:"thumbnail";a:4:{s:4:"file";s:20:"P9192019-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:20:"P9192019-300x225.jpg";s:5:"width";i:300;s:6:"height";i:225;s:9:"mime-type";s:10:"image/jpeg";}s:5:"large";a:4:{s:4:"file";s:21:"P9192019-1024x768.jpg";s:5:"width";i:1024;s:6:"height";i:768;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";d:5.2000000000000002;s:6:"credit";s:0:"";s:6:"camera";s:10:"FE240/X795";s:7:"caption";s:0:"";s:17:"created_timestamp";i:1316429703;s:9:"copyright";s:0:"";s:12:"focal_length";s:3:"6.4";s:3:"iso";s:2:"50";s:13:"shutter_speed";s:8:"0.003125";s:5:"title";s:22:"OLYMPUS DIGITAL CAMERA";}}'),
 (39, 9, '_simple_fields_been_saved', '1'),
@@ -311,7 +311,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (71, 2, '_wp_trash_meta_time', '1404570477'),
 (72, 13, '_edit_last', '1'),
 (73, 13, '_wp_page_template', 'default'),
-(74, 13, '_edit_lock', '1404912831:1'),
+(74, 13, '_edit_lock', '1404930254:1'),
 (77, 7, '_simple_fields_fieldGroupID_1_fieldID_added_numInSet_0', '1'),
 (78, 7, '_simple_fields_fieldGroupID_1_fieldID_1_numInSet_0', '+7 (903) 287 22 44'),
 (79, 15, '_edit_last', '1'),
@@ -334,7 +334,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (96, 19, '_wp_trash_meta_time', '1404574336'),
 (97, 21, '_edit_last', '1'),
 (98, 21, '_simple_fields_selected_connector', '4'),
-(99, 21, '_edit_lock', '1404916193:1'),
+(99, 21, '_edit_lock', '1404933710:1'),
 (100, 21, '_simple_fields_been_saved', '1'),
 (129, 25, '_wp_attached_file', '2014/07/P9191978.jpg'),
 (130, 25, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:3072;s:6:"height";i:2304;s:4:"file";s:20:"2014/07/P9191978.jpg";s:5:"sizes";a:4:{s:9:"thumbnail";a:4:{s:4:"file";s:20:"P9191978-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:20:"P9191978-300x225.jpg";s:5:"width";i:300;s:6:"height";i:225;s:9:"mime-type";s:10:"image/jpeg";}s:5:"large";a:4:{s:4:"file";s:21:"P9191978-1024x768.jpg";s:5:"width";i:1024;s:6:"height";i:768;s:9:"mime-type";s:10:"image/jpeg";}s:14:"post-thumbnail";a:4:{s:4:"file";s:20:"P9191978-306x230.jpg";s:5:"width";i:306;s:6:"height";i:230;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";d:5;s:6:"credit";s:0:"";s:6:"camera";s:10:"FE240/X795";s:7:"caption";s:0:"";s:17:"created_timestamp";i:1316424319;s:9:"copyright";s:0:"";s:12:"focal_length";s:2:"32";s:3:"iso";s:3:"100";s:13:"shutter_speed";s:5:"0.004";s:5:"title";s:22:"OLYMPUS DIGITAL CAMERA";}}'),
@@ -404,16 +404,6 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (227, 34, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
 (228, 34, '_menu_item_xfn', ''),
 (229, 34, '_menu_item_url', ''),
-(267, 9, '_simple_fields_fieldGroupID_2_fieldID_added_numInSet_0', '1'),
-(268, 9, '_simple_fields_fieldGroupID_2_fieldID_added_numInSet_1', '1'),
-(269, 9, '_simple_fields_fieldGroupID_2_fieldID_1_numInSet_0', 'Заголовок 1'),
-(270, 9, '_simple_fields_fieldGroupID_2_fieldID_1_numInSet_1', 'Заголовок 2'),
-(271, 9, '_simple_fields_fieldGroupID_2_fieldID_2_numInSet_0', '2013-2014'),
-(272, 9, '_simple_fields_fieldGroupID_2_fieldID_2_numInSet_1', '1985-1988'),
-(273, 9, '_simple_fields_fieldGroupID_2_fieldID_3_numInSet_0', '10'),
-(274, 9, '_simple_fields_fieldGroupID_2_fieldID_3_numInSet_1', '11'),
-(275, 9, '_simple_fields_fieldGroupID_2_fieldID_4_numInSet_0', 'http://www.google.com'),
-(276, 9, '_simple_fields_fieldGroupID_2_fieldID_4_numInSet_1', 'http://ya.ru'),
 (281, 37, '_edit_last', '1'),
 (282, 37, '_edit_lock', '1404915796:1'),
 (283, 38, '_wp_attached_file', '2014/07/Снимок.png'),
@@ -421,7 +411,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (285, 37, '_thumbnail_id', '38'),
 (286, 37, '_simple_fields_selected_connector', '4'),
 (287, 39, '_edit_last', '1'),
-(288, 39, '_edit_lock', '1404915792:1'),
+(288, 39, '_edit_lock', '1404933555:1'),
 (290, 39, '_simple_fields_selected_connector', '__none__'),
 (291, 41, '_edit_last', '1'),
 (292, 41, '_edit_lock', '1404915787:1'),
@@ -431,19 +421,26 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (296, 41, '_simple_fields_selected_connector', '4'),
 (297, 39, '_simple_fields_been_saved', '1'),
 (315, 43, '_edit_last', '1'),
-(316, 43, '_edit_lock', '1404916002:1'),
+(316, 43, '_edit_lock', '1404930239:1'),
 (320, 43, '_simple_fields_selected_connector', '4'),
 (328, 46, '_wp_attached_file', '2014/07/mitsubishi-lancer-x-p942b.jpg'),
 (329, 46, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1000;s:6:"height";i:365;s:4:"file";s:37:"2014/07/mitsubishi-lancer-x-p942b.jpg";s:5:"sizes";a:3:{s:9:"thumbnail";a:4:{s:4:"file";s:37:"mitsubishi-lancer-x-p942b-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:37:"mitsubishi-lancer-x-p942b-300x109.jpg";s:5:"width";i:300;s:6:"height";i:109;s:9:"mime-type";s:10:"image/jpeg";}s:14:"post-thumbnail";a:4:{s:4:"file";s:37:"mitsubishi-lancer-x-p942b-288x105.jpg";s:5:"width";i:288;s:6:"height";i:105;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}'),
 (330, 39, '_thumbnail_id', '46'),
-(332, 47, '_wp_attached_file', '2014/07/загруженное.jpg'),
-(333, 47, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:255;s:6:"height";i:198;s:4:"file";s:34:"2014/07/загруженное.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:4:{s:4:"file";s:34:"загруженное-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:14:"post-thumbnail";a:4:{s:4:"file";s:34:"загруженное-227x177.jpg";s:5:"width";i:227;s:6:"height";i:177;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}'),
-(334, 43, '_thumbnail_id', '47'),
-(390, 21, '_thumbnail_id', '25'),
-(391, 21, '_simple_fields_fieldGroupID_7_fieldID_added_numInSet_0', '1'),
-(392, 21, '_simple_fields_fieldGroupID_7_fieldID_1_numInSet_0', 'Красный'),
-(393, 21, '_simple_fields_fieldGroupID_6_fieldID_added_numInSet_0', '1'),
-(394, 21, '_simple_fields_fieldGroupID_6_fieldID_2_numInSet_0', '42');
+(395, 9, '_simple_fields_fieldGroupID_2_fieldID_added_numInSet_0', '1'),
+(396, 9, '_simple_fields_fieldGroupID_2_fieldID_added_numInSet_1', '1'),
+(397, 9, '_simple_fields_fieldGroupID_2_fieldID_1_numInSet_0', 'Заголовок 1'),
+(398, 9, '_simple_fields_fieldGroupID_2_fieldID_1_numInSet_1', 'Заголовок 2'),
+(399, 9, '_simple_fields_fieldGroupID_2_fieldID_2_numInSet_0', '2013-2014'),
+(400, 9, '_simple_fields_fieldGroupID_2_fieldID_2_numInSet_1', '1985-1988'),
+(401, 9, '_simple_fields_fieldGroupID_2_fieldID_3_numInSet_0', '46'),
+(402, 9, '_simple_fields_fieldGroupID_2_fieldID_3_numInSet_1', '11'),
+(403, 9, '_simple_fields_fieldGroupID_2_fieldID_4_numInSet_0', 'http://www.google.com'),
+(404, 9, '_simple_fields_fieldGroupID_2_fieldID_4_numInSet_1', 'http://ya.ru'),
+(417, 43, '_thumbnail_id', '25'),
+(418, 21, '_simple_fields_fieldGroupID_7_fieldID_added_numInSet_0', '1'),
+(419, 21, '_simple_fields_fieldGroupID_7_fieldID_1_numInSet_0', 'Красный'),
+(420, 21, '_simple_fields_fieldGroupID_6_fieldID_added_numInSet_0', '1'),
+(421, 21, '_simple_fields_fieldGroupID_6_fieldID_2_numInSet_0', '42');
 
 -- --------------------------------------------------------
 
@@ -494,7 +491,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (6, 1, '2014-07-02 23:28:45', '2014-07-02 19:28:45', '', 'Телефон', '', 'trash', 'closed', 'closed', '', 'nastrojki', '', '', '2014-07-02 23:30:57', '2014-07-02 19:30:57', '', 0, 'http://forma.com/?post_type=settings&#038;p=6', 0, 'settings', '', 0),
 (7, 1, '2014-07-02 23:31:09', '2014-07-02 19:31:09', '', 'Телефон', '', 'publish', 'closed', 'closed', '', 'telefon', '', '', '2014-07-05 18:36:27', '2014-07-05 14:36:27', '', 0, 'http://forma.com/?post_type=settings&#038;p=7', 0, 'settings', '', 0),
 (8, 1, '2014-07-05 17:20:23', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-07-05 17:20:23', '0000-00-00 00:00:00', '', 0, 'http://forma.com/?p=8', 0, 'post', '', 0),
-(9, 1, '2014-07-05 17:21:22', '2014-07-05 13:21:22', '', 'Слайдер', '', 'publish', 'closed', 'closed', '', 'slajder', '', '', '2014-07-09 12:37:38', '2014-07-09 08:37:38', '', 0, 'http://forma.com/?post_type=settings&#038;p=9', 0, 'settings', '', 0),
+(9, 1, '2014-07-05 17:21:22', '2014-07-05 13:21:22', '', 'Слайдер', '', 'publish', 'closed', 'closed', '', 'slajder', '', '', '2014-07-09 21:31:30', '2014-07-09 17:31:30', '', 0, 'http://forma.com/?post_type=settings&#038;p=9', 0, 'settings', '', 0),
 (11, 1, '2014-07-05 17:31:36', '2014-07-05 13:31:36', '', 'OLYMPUS DIGITAL CAMERA', '', 'inherit', 'open', 'open', '', 'olympus-digital-camera', '', '', '2014-07-05 17:31:36', '2014-07-05 13:31:36', '', 0, 'http://forma.com/wp-content/uploads/2014/07/P9192019.jpg', 0, 'attachment', 'image/jpeg', 0),
 (12, 1, '2014-07-05 18:27:57', '2014-07-05 14:27:57', 'Это пример страницы. От записей в блоге она отличается тем, что остаётся на одном месте и отображается в меню сайта (в большинстве тем). На странице &laquo;Детали&raquo; владельцы сайтов обычно рассказывают о себе потенциальным посетителям. Например, так:\n\n<blockquote>Привет! Днём я курьер, а вечером &#8212; подающий надежды актёр. Это мой блог. Я живу в Ростове-на-Дону, люблю своего пса Джека и пинаколаду. (И ещё попадать под дождь.)</blockquote>\n\n...или так:\n\n<blockquote>Компания &laquo;Штучки XYZ&raquo; была основана в 1971 году и с тех пор производит качественные штучки. Компания находится в Готэм-сити, имеет штат из более чем 2000 сотрудников и приносит много пользы жителям Готэма.</blockquote>\n\nПерейдите <a href="http://forma.com/wp-admin/">в консоль</a>, чтобы удалить эту страницу и создать новые. Успехов!', 'Пример страницы', '', 'inherit', 'open', 'open', '', '2-revision-v1', '', '', '2014-07-05 18:27:57', '2014-07-05 14:27:57', '', 2, 'http://forma.com/2-revision-v1/', 0, 'revision', '', 0),
 (13, 1, '2014-07-05 18:28:15', '2014-07-05 14:28:15', '', 'Каталог', '', 'publish', 'open', 'open', '', 'catalog', '', '', '2014-07-05 18:31:02', '2014-07-05 14:31:02', '', 0, 'http://forma.com/?page_id=13', 0, 'page', '', 0),
@@ -505,7 +502,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (18, 1, '2014-07-05 19:31:05', '2014-07-05 15:31:05', '', 'Черновик', '', 'trash', 'open', 'open', '', 'chernovik', '', '', '2014-07-05 19:31:14', '2014-07-05 15:31:14', '', 0, 'http://forma.com/?post_type=products&#038;p=18', 0, 'products', '', 0),
 (19, 1, '2014-07-05 19:32:13', '2014-07-05 15:32:13', '', 'Черновик', '', 'trash', 'open', 'open', '', 'chernovik-2', '', '', '2014-07-05 19:32:16', '2014-07-05 15:32:16', '', 0, 'http://forma.com/?post_type=products&#038;p=19', 0, 'products', '', 0),
 (20, 1, '2014-07-05 19:33:40', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-07-05 19:33:40', '0000-00-00 00:00:00', '', 0, 'http://forma.com/?post_type=products&p=20', 0, 'products', '', 0),
-(21, 1, '2014-07-05 20:00:24', '2014-07-05 16:00:24', 'Описание товара', 'футболка', '', 'publish', 'closed', 'closed', '', '21', '', '', '2014-07-09 18:32:10', '2014-07-09 14:32:10', '', 0, 'http://forma.com/?post_type=products&#038;p=21', 0, 'products', '', 0),
+(21, 1, '2014-07-05 20:00:24', '2014-07-05 16:00:24', 'Описание товара', 'футболка', '', 'publish', 'closed', 'closed', '', '21', '', '', '2014-07-09 23:21:49', '2014-07-09 19:21:49', '', 0, 'http://forma.com/?post_type=products&#038;p=21', 0, 'products', '', 0),
 (22, 1, '2014-07-05 20:01:26', '2014-07-05 16:01:26', 'Описание товара', 'футболка', '', 'inherit', 'open', 'open', '', '21-autosave-v1', '', '', '2014-07-05 20:01:26', '2014-07-05 16:01:26', '', 21, 'http://forma.com/21-autosave-v1/', 0, 'revision', '', 0),
 (23, 1, '2014-07-05 20:13:15', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-07-05 20:13:15', '0000-00-00 00:00:00', '', 0, 'http://forma.com/?p=23', 0, 'post', '', 0),
 (24, 1, '2014-07-05 20:44:10', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-07-05 20:44:10', '0000-00-00 00:00:00', '', 0, 'http://forma.com/?p=24', 0, 'post', '', 0),
@@ -522,13 +519,12 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (35, 1, '2014-07-09 00:43:06', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-07-09 00:43:06', '0000-00-00 00:00:00', '', 0, 'http://forma.com/?page_id=35', 0, 'page', '', 0),
 (37, 1, '2014-07-09 14:06:32', '2014-07-09 10:06:32', 'Что то там...', 'Брюки', '', 'publish', 'closed', 'closed', '', 'bryuki', '', '', '2014-07-09 14:06:32', '2014-07-09 10:06:32', '', 0, 'http://forma.com/?post_type=products&#038;p=37', 0, 'products', '', 0),
 (38, 1, '2014-07-09 14:06:13', '2014-07-09 10:06:13', '', 'Снимок', '', 'inherit', 'open', 'open', '', 'snimok', '', '', '2014-07-09 14:06:13', '2014-07-09 10:06:13', '', 37, 'http://forma.com/wp-content/uploads/2014/07/Снимок.png', 0, 'attachment', 'image/png', 0),
-(39, 1, '2014-07-09 14:07:26', '2014-07-09 10:07:26', 'Еще одно что то там.', 'Красовки', '', 'publish', 'closed', 'closed', '', 'krasovki', '', '', '2014-07-09 17:40:23', '2014-07-09 13:40:23', '', 0, 'http://forma.com/?post_type=products&#038;p=39', 0, 'products', '', 0),
+(39, 1, '2014-07-09 14:07:26', '2014-07-09 10:07:26', 'Еще одно что то там.', 'Красовки', '', 'publish', 'closed', 'closed', '', 'krasovki', '', '', '2014-07-09 23:19:33', '2014-07-09 19:19:33', '', 0, 'http://forma.com/?post_type=products&#038;p=39', 0, 'products', '', 0),
 (40, 1, '2014-07-09 14:08:43', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2014-07-09 14:08:43', '0000-00-00 00:00:00', '', 0, 'http://forma.com/?post_type=products&p=40', 0, 'products', '', 0),
 (41, 1, '2014-07-09 14:15:14', '2014-07-09 10:15:14', 'Описание Майка', 'Майка', '', 'publish', 'closed', 'closed', '', 'majka', '', '', '2014-07-09 14:15:14', '2014-07-09 10:15:14', '', 0, 'http://forma.com/?post_type=products&#038;p=41', 0, 'products', '', 0),
 (42, 1, '2014-07-09 14:15:08', '2014-07-09 10:15:08', '', 'de_stromenko', '', 'inherit', 'open', 'open', '', 'de_stromenko', '', '', '2014-07-09 14:15:08', '2014-07-09 10:15:08', '', 41, 'http://forma.com/wp-content/uploads/2014/07/de_stromenko.jpg', 0, 'attachment', 'image/jpeg', 0),
-(43, 1, '2014-07-09 17:10:02', '2014-07-09 13:10:02', 'ываывпфп', 'Еще что то', '', 'publish', 'closed', 'closed', '', 'eshhe-chto-to', '', '', '2014-07-09 18:28:54', '2014-07-09 14:28:54', '', 0, 'http://forma.com/?post_type=products&#038;p=43', 0, 'products', '', 0),
-(46, 1, '2014-07-09 17:40:04', '2014-07-09 13:40:04', '', 'mitsubishi-lancer-x-p942b', '', 'inherit', 'open', 'open', '', 'mitsubishi-lancer-x-p942b', '', '', '2014-07-09 17:40:04', '2014-07-09 13:40:04', '', 39, 'http://forma.com/wp-content/uploads/2014/07/mitsubishi-lancer-x-p942b.jpg', 0, 'attachment', 'image/jpeg', 0),
-(47, 1, '2014-07-09 18:28:45', '2014-07-09 14:28:45', '', 'загруженное', '', 'inherit', 'open', 'open', '', 'zagruzhennoe', '', '', '2014-07-09 18:28:45', '2014-07-09 14:28:45', '', 43, 'http://forma.com/wp-content/uploads/2014/07/загруженное.jpg', 0, 'attachment', 'image/jpeg', 0);
+(43, 1, '2014-07-09 17:10:02', '2014-07-09 13:10:02', 'ываывпфп', 'Еще что то', '', 'publish', 'closed', 'closed', '', 'eshhe-chto-to', '', '', '2014-07-09 22:24:05', '2014-07-09 18:24:05', '', 0, 'http://forma.com/?post_type=products&#038;p=43', 0, 'products', '', 0),
+(46, 1, '2014-07-09 17:40:04', '2014-07-09 13:40:04', '', 'mitsubishi-lancer-x-p942b', '', 'inherit', 'open', 'open', '', 'mitsubishi-lancer-x-p942b', '', '', '2014-07-09 17:40:04', '2014-07-09 13:40:04', '', 39, 'http://forma.com/wp-content/uploads/2014/07/mitsubishi-lancer-x-p942b.jpg', 0, 'attachment', 'image/jpeg', 0);
 
 -- --------------------------------------------------------
 
@@ -597,9 +593,9 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 (37, 5, 0),
 (37, 7, 0),
 (37, 12, 0),
-(39, 7, 0),
-(39, 8, 0),
-(39, 9, 0),
+(39, 5, 0),
+(39, 10, 0),
+(39, 12, 0),
 (41, 4, 0),
 (41, 8, 0),
 (41, 9, 0),
@@ -632,13 +628,13 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 (2, 2, 'category', '', 0, 0),
 (3, 3, 'category', '', 2, 0),
 (4, 2, 'genre', '', 0, 2),
-(5, 4, 'genre', '', 0, 1),
-(7, 6, 'genre', '', 2, 2),
-(8, 7, 'genre', '', 2, 4),
-(9, 8, 'genre', '', 2, 3),
-(10, 9, 'genre', '', 4, 0),
+(5, 4, 'genre', '', 0, 2),
+(7, 6, 'genre', '', 2, 1),
+(8, 7, 'genre', '', 2, 3),
+(9, 8, 'genre', '', 2, 2),
+(10, 9, 'genre', '', 4, 1),
 (11, 10, 'genre', '', 4, 0),
-(12, 11, 'genre', '', 4, 1),
+(12, 11, 'genre', '', 4, 2),
 (13, 12, 'nav_menu', '', 0, 8);
 
 -- --------------------------------------------------------
