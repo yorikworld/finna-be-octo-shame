@@ -11,7 +11,21 @@
                             </ul>
                         </div>
                         <div class="big-photo">
-                            <img src="img/picpic.png" height="655" width="431" alt="" />
+                            <script>
+                                $("#img_01").elevateZoom();
+                            </script>
+                                <?php if ( have_posts() ) {
+                                while ( have_posts() ) {
+                                the_post();?>
+                                <?php if ( has_post_thumbnail() ) {?>
+                                 <img id="zoom" src="/timthumb.php?src=<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>&w=431&h=655&a=tc"
+                                   data-zoom-image = "<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" />
+                                   <?php } else { ?>
+                                        <img src="/timthumb.php?src=/wp-content/uploads/noimage.jpg&w=177&h=288&a=tc"/>
+                                   <?php } ?>
+                                   <?php } ?>
+                                   <?php } ?>
+
                         </div>
                     </div>
                     <div class="product-info">

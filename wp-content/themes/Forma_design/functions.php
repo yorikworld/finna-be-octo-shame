@@ -15,6 +15,7 @@ register_nav_menus( array(
 function theme_scripts() {
     global $wp_styles;
     global $wp_scripts;
+    wp_enqueue_script( 'jquery_zoom', get_template_directory_uri() . '/js/jquery.elevatezoom.js"', array('jquery'), '1.0.0' );
     wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-1.9.1.min.js"', array('jquery'), '1.0.0' );
     wp_enqueue_script( 'jquery.cycle', get_template_directory_uri() . '/js/jquery.cycle.all.min.js"', array('jquery'), '1.0.0' );
     wp_enqueue_script( 'formstyler', get_template_directory_uri() . '/js/jquery.formstyler.min.js"', array('jquery'), '1.0.0' );
