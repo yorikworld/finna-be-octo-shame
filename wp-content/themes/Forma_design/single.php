@@ -5,27 +5,32 @@
                     <div class="product-catalog">
                         <div class="photos-list">
                             <ul>
-                                <li><img src="img/picpic.png" alt="" /></li>
-                                <li><img src="img/picpic.png" alt="" /></li>
-                                <li><img src="img/picpic.png" alt="" /></li>
+                                <?php foreach (simple_fields_fieldgroup("preview_slug", $post->ID) as $preview){ ?>
+                                    <?php if ($preview['is_image']){ ?>
+                                        <?php echo '<li><img src="/timthumb.php?src=' . $preview['image_src']['full']['0'] . '&w=120&h=196&a=tc" alt="" /></li>'; ?>
+                                    <?php } else { ?>
+                                        <?php echo '<li><img src="/timthumb.php?src=/wp-content/uploads/noimage.jpg&w=120&h=196&a=tc" alt="" /></li>'; ?>
+                                    <?php } ?>
+                                <?php } ?>
+<!--                               --><?php //var_dump($preview);?>
                             </ul>
                         </div>
                         <div class="big-photo">
-                            <script>
-                                $("#img_01").elevateZoom();
-                            </script>
+
                                 <?php if ( have_posts() ) {
                                 while ( have_posts() ) {
                                 the_post();?>
                                 <?php if ( has_post_thumbnail() ) {?>
                                  <img id="zoom" src="/timthumb.php?src=<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>&w=431&h=655&a=tc"
-                                   data-zoom-image = "<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" />
+                                   data-zoom-image ="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" />
                                    <?php } else { ?>
                                         <img src="/timthumb.php?src=/wp-content/uploads/noimage.jpg&w=177&h=288&a=tc"/>
                                    <?php } ?>
                                    <?php } ?>
                                    <?php } ?>
-
+                            <script>
+                                $("#zoom").elevateZoom({ zoomType	 : "inner", cursor: "crosshair" });
+                            </script>
                         </div>
                     </div>
                     <div class="product-info">
