@@ -66,12 +66,28 @@
                             </div>
                             <div class="amount">
                                 <div class="change">
-                                    <div class="all">Количество: <span>1</span></div>
+
+                                    <div class="all">Количество: <span id="span" >1</span></div>
+                                    <input id="count" type = "hidden" name="checkout[167][count]"  value="1">
                                     <div class="plus-minus">
-                                        <a href="#"></a>
-                                        <a href="#"></a>
+<!--                                        <input type="button" value="+" id="plus" onClick = "doPlus();" />-->
+                                        <a class="minus" onClick = "doMinus();" ></a>
+                                        <a class="plus" onClick = "doPlus();" ></a>
                                     </div>
                                 </div>
+                                <script>
+                                    function doMinus(){
+                                        if(document.getElementById("count").value > 1){
+                                            document.getElementById("count").value = --document.getElementById("count").value;
+                                            document.getElementById("span").textContent=document.getElementById("count").value;
+                                        }
+                                    }
+
+                                    function doPlus(){
+                                        document.getElementById("count").value = ++document.getElementById("count").value;
+                                        document.getElementById("span").textContent=document.getElementById("count").value;
+                                    }
+                                </script>
                             </div>
                             <div class="product-price"><?php echo simple_fields_fieldgroup("price", $post->ID);  ?></div>
                             <a href="#" class="to-basket"></a>
