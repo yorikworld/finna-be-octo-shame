@@ -26,8 +26,7 @@
                                    <?php } else { ?>
                                         <img src="/timthumb.php?src=/wp-content/uploads/noimage.jpg&w=177&h=288&a=tc"/>
                                    <?php } ?>
-                                   <?php } ?>
-                                   <?php } ?>
+
                             <script>
                                 $("#zoom").elevateZoom({ zoomType	 : "inner", cursor: "crosshair" });
                             </script>
@@ -35,12 +34,11 @@
                     </div>
                     <div class="product-info">
                         <div class="prod-name">
-                            <a href="#" class="forw"></a>
-                            <span>Футболка серая</span>
+                            <a href="<?php echo (get_permalink(13));?>" class="forw"></a>
+                            <span><?php if (get_the_title($post->id) == "") { echo "Без названия";} else {echo the_title();}; ?></span>
                         </div>
                         <div class="about-product">
-                            <p>Элегантная футболка серого цвета, новинка осеннего сезона.</p>
-                            <p>Состав: 100% хлопок</p>
+                            <?php echo content(80)?>
                             <div class="change-parameters">
                                 <form action="#">
                                     <fieldset>
@@ -48,17 +46,18 @@
                                             <div class="select-box">
                                                <label>Цвет:</label>
                                                <select>
-                                                   <option>Белый</option>
-                                                   <option>Серый</option>
-                                                   <option>Черный</option>
+                                                   <?php foreach (simple_fields_fieldgroup("color", $post->ID) as $color){ ?>
+<!--                                                       --><?php //var_dump($color)?>
+<!--                                                   <option>--><?php //echo $color; ?><!--</option>-->
+                                                   <?php }; ?>
                                                </select>
                                             </div>
                                             <div class="select-box">
                                                <label>Размер</label>
                                                <select>
-                                                   <option>40</option>
-                                                   <option>42</option>
-                                                   <option>44</option>
+                                                   <?php foreach (simple_fields_fieldgroup("sizes_slug", $post->ID) as $size){ ?>
+                                                       <option><?php echo $size; ?></option>
+                                                   <?php }; ?>
                                                </select>
                                             </div>
                                         </div>
@@ -74,14 +73,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="product-price">3000 руб.</div>
+                            <div class="product-price"><?php echo simple_fields_fieldgroup("price", $post->ID);  ?></div>
                             <a href="#" class="to-basket"></a>
                             <ul class="product-social">
-                                <li><a href="#"></a></li>
+                                <li><a href="1"></a></li>
                                 <li><a href="#"></a></li>
                                 <li><a href="#"></a></li>
                             </ul>
                         </div>
+                        <?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

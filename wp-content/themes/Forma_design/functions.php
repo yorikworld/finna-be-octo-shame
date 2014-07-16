@@ -121,6 +121,22 @@ function create_book_taxonomies() {
     );
 
     register_taxonomy( 'genre', array( 'book' ), $args );
+
 }
+
+function content($limit) {
+    $content = explode(' ', get_the_content(), $limit);
+    if (count($content)>=$limit) {
+        array_pop($content);
+        $content = implode(" ",$content).'...';
+    } else {
+        $content = implode(" ",$content);
+    }
+    $content = preg_replace('/\[.+\]/','', $content);
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    return $content;
+}
+
 add_theme_support('post-thumbnails'); // поддержка миниатюр
 set_post_thumbnail_size(288, 177, false);

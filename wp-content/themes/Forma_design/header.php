@@ -19,7 +19,7 @@
             </div>
             <div class="menu-area">
                 <ul class="main-menu">
-                    <li class="active"><a href="<?php echo (get_permalink(13))?>">Форма</a></li>
+                    <li class="active"><a href="<?php echo (get_permalink(13));?>">Форма</a></li>
                     <li><a href="#">Форма спорт</a></li>
                     <li><a href="#">Аксессуары</a></li>
                     <li><a href="#">Sale</a></li>
