@@ -7,7 +7,7 @@
                             <ul>
                                 <?php foreach (simple_fields_fieldgroup("preview_slug", $post->ID) as $preview){ ?>
                                     <?php if ($preview['is_image']){ ?>
-                                        <?php echo '<li><img src="/timthumb.php?src=' . $preview['image_src']['full']['0'] . '&w=120&h=196&a=tc" alt="" /></li>'; ?>
+                                        <?php echo '<li><a href = " '. $preview['image_src']['full']['0'] .' "> <img src="/timthumb.php?src=' . $preview['image_src']['full']['0'] . '&w=120&h=196&a=tc" alt="" /></li>'; ?>
                                     <?php } else { ?>
                                         <?php echo '<li><img src="/timthumb.php?src=/wp-content/uploads/noimage.jpg&w=120&h=196&a=tc" alt="" /></li>'; ?>
                                     <?php } ?>
@@ -47,17 +47,14 @@
                                                <label>Цвет:</label>
                                                <select>
                                                    <?php foreach (simple_fields_fieldgroup("color", $post->ID) as $color){ ?>
-<!--                                                       --><?php //var_dump($color)?>
-<!--                                                   <option>--><?php //echo $color; ?><!--</option>-->
-                                                   <?php }; ?>
+                                                   <option><?php echo $color; }; ?></option>
                                                </select>
                                             </div>
                                             <div class="select-box">
                                                <label>Размер</label>
                                                <select>
                                                    <?php foreach (simple_fields_fieldgroup("sizes_slug", $post->ID) as $size){ ?>
-                                                       <option><?php echo $size; ?></option>
-                                                   <?php }; ?>
+                                                       <option><?php echo $size; }; ?></option>
                                                </select>
                                             </div>
                                         </div>
@@ -68,9 +65,8 @@
                                 <div class="change">
 
                                     <div class="all">Количество: <span id="span" >1</span></div>
-                                    <input id="count" type = "hidden" name="checkout[167][count]"  value="1">
+                                    <input id="count" type = "hidden" name=""  value="1">
                                     <div class="plus-minus">
-<!--                                        <input type="button" value="+" id="plus" onClick = "doPlus();" />-->
                                         <a class="minus" onClick = "doMinus();" ></a>
                                         <a class="plus" onClick = "doPlus();" ></a>
                                     </div>
@@ -89,12 +85,13 @@
                                     }
                                 </script>
                             </div>
-                            <div class="product-price"><?php echo simple_fields_fieldgroup("price", $post->ID);  ?></div>
+                            <div class="product-price"><?php if (simple_fields_fieldgroup("price", $post->ID) == "") {echo "0 грн";} else {echo simple_fields_fieldgroup("price", $post->ID);};   ?></div>
                             <a href="#" class="to-basket"></a>
+                            <?php $follow = simple_fields_fieldgroup("follow", 60);?>
                             <ul class="product-social">
-                                <li><a href="1"></a></li>
-                                <li><a href="#"></a></li>
-                                <li><a href="#"></a></li>
+                                <li><a href="<?php echo $follow['vk_slug']?>"></a></li>
+                                <li><a href="<?php echo $follow['facebook_slug']?>"></a></li>
+                                <li><a href="<?php echo $follow['twitter_slug']?>"></a></li>
                             </ul>
                         </div>
                         <?php } ?>

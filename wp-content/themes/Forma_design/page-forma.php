@@ -1,7 +1,5 @@
 <?php
-/*
-Template Name: catalog
-*/
+
 get_header()?>
         <div class="content">
             <div class="wrapper">

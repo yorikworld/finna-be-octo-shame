@@ -20,11 +20,11 @@
             <div class="menu-area">
                 <ul class="main-menu">
                     <li class="active"><a href="<?php echo (get_permalink(13));?>">Форма</a></li>
-                    <li><a href="#">Форма спорт</a></li>
-                    <li><a href="#">Аксессуары</a></li>
-                    <li><a href="#">Sale</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="<?php echo (get_permalink(61));?>">Форма спорт</a></li>
+                    <li><a href="<?php echo (get_permalink(64));?>">Аксессуары</a></li>
+                    <li><a href="<?php echo (get_permalink(66));?>">Sale</a></li>
+                    <li><a href="<?php echo (get_permalink(68));?>">О нас</a></li>
+                    <li><a href="<?php echo (get_permalink(70));?>">Контакты</a></li>
                 </ul>
                 <div class="basket">
                     <p class="head">корзина</p>
