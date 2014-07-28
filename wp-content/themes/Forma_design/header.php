@@ -5,7 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="keywords" />
     <meta name="description" content="description" />
-    <?php wp_head(); ?>
+    <?php wp_head();
+    session_start();
+    echo '<pre>';
+    print_r($_SESSION);
+    echo '</pre>';
+    ?>
 </head>
 <body>
 <div class="page">

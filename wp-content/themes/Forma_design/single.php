@@ -1,4 +1,26 @@
 <?php get_header();?>
+<?php
+var_dump($_POST);
+if(isset($_POST['product'])&&!empty($_POST['product'])){
+    $product= $_POST['product'];
+    unset($product[$_POST['id']]['count']);
+    unset($product[$_POST['id']]['id']);
+    var_dump($product);
+    $_SESSION['product'][json_encode($product)]=$_POST['product'][$_POST['id']];
+
+
+}
+unset($_SESSION['product']);
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
+//if (!isset($_SESSION)){
+//    session_start();
+//    $_SESSION[$post->ID] = 0;
+//    var_dump($_SESSION);
+//}
+//else {};
+?>
         <div class="content">
             <div class="wrapper">
                 <div class="page-all">
@@ -39,54 +61,57 @@
                         </div>
                         <div class="about-product">
                             <?php echo content(80)?>
-                            <div class="change-parameters">
-                                <form action="#">
-                                    <fieldset>
-                                        <div class="line">
-                                            <div class="select-box">
-                                               <label>Цвет:</label>
-                                               <select>
-                                                   <?php foreach (simple_fields_fieldgroup("color", $post->ID) as $color){ ?>
-                                                   <option><?php echo $color; }; ?></option>
-                                               </select>
+                            <form method="post">
+                                <div class="change-parameters">
+                                        <fieldset>
+                                            <div class="line">
+                                                <div class="select-box">
+                                                   <label>Цвет:</label>
+                                                   <select name="product[<?php echo $post->ID ?>][color]">
+                                                       <?php foreach (simple_fields_fieldgroup("color", $post->ID) as $color){ ?>
+                                                       <option><?php echo $color; }; ?></option>
+                                                   </select>
+                                                </div>
+                                                <div class="select-box">
+                                                   <label>Размер</label>
+                                                   <select name="product[<?php echo $post->ID ?>][size]" >
+                                                       <?php foreach (simple_fields_fieldgroup("sizes_slug", $post->ID) as $size){ ?>
+                                                           <option><?php echo $size; }; ?></option>
+                                                   </select>
+                                                </div>
                                             </div>
-                                            <div class="select-box">
-                                               <label>Размер</label>
-                                               <select>
-                                                   <?php foreach (simple_fields_fieldgroup("sizes_slug", $post->ID) as $size){ ?>
-                                                       <option><?php echo $size; }; ?></option>
-                                               </select>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </div>
-                            <div class="amount">
-                                <div class="change">
-
-                                    <div class="all">Количество: <span id="span" >1</span></div>
-                                    <input id="count" type = "hidden" name=""  value="1">
-                                    <div class="plus-minus">
-                                        <a class="minus" onClick = "doMinus();" ></a>
-                                        <a class="plus" onClick = "doPlus();" ></a>
-                                    </div>
+                                        </fieldset>
                                 </div>
-                                <script>
-                                    function doMinus(){
-                                        if(document.getElementById("count").value > 1){
-                                            document.getElementById("count").value = --document.getElementById("count").value;
+                                <div class="amount">
+                                    <div class="change">
+                                        <div class="all">Количество: <span id="span" >1</span></div>
+
+                                        <input id="count" type = "hidden" name="product[<?php echo $post->ID ?>][count]"  value="1">
+                                        <div class="plus-minus">
+                                            <a class="minus" onClick = "doMinus();" ></a>
+                                            <a class="plus" onClick = "doPlus();" ></a>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        function doMinus(){
+                                            if(document.getElementById("count").value > 1){
+                                                document.getElementById("count").value = --document.getElementById("count").value;
+                                                document.getElementById("span").textContent=document.getElementById("count").value;
+                                            }
+                                        }
+
+                                        function doPlus(){
+                                            document.getElementById("count").value = ++document.getElementById("count").value;
                                             document.getElementById("span").textContent=document.getElementById("count").value;
                                         }
-                                    }
+                                    </script>
+                                </div>
+                                <div class="product-price"><?php if (simple_fields_fieldgroup("price", $post->ID) == "") {echo "0 грн";} else {echo simple_fields_fieldgroup("price", $post->ID);};   ?></div>
+                                <input type="hidden" name="id" value="<?php echo $post->ID ?>" />
+                                <input type="hidden" name="product[<?php echo $post->ID ?>][id]" value="<?php echo $post->ID ?>" />
+                                <input type="submit"  class="to-basket" value="" />
+                            </form>
 
-                                    function doPlus(){
-                                        document.getElementById("count").value = ++document.getElementById("count").value;
-                                        document.getElementById("span").textContent=document.getElementById("count").value;
-                                    }
-                                </script>
-                            </div>
-                            <div class="product-price"><?php if (simple_fields_fieldgroup("price", $post->ID) == "") {echo "0 грн";} else {echo simple_fields_fieldgroup("price", $post->ID);};   ?></div>
-                            <a href="#" class="to-basket"></a>
                             <?php $follow = simple_fields_fieldgroup("follow", 60);?>
                             <ul class="product-social">
                                 <li><a href="<?php echo $follow['vk_slug']?>"></a></li>
