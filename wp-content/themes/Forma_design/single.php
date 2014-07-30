@@ -1,19 +1,10 @@
 <?php get_header();?>
 <?php
-var_dump($_POST);
-if(isset($_POST['product'])&&!empty($_POST['product'])){
-    $product= $_POST['product'];
-    unset($product[$_POST['id']]['count']);
-    unset($product[$_POST['id']]['id']);
-    var_dump($product);
-    $_SESSION['product'][json_encode($product)]=$_POST['product'][$_POST['id']];
 
-
-}
-unset($_SESSION['product']);
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
+//unset($_SESSION['product']);
+//echo '<pre>';
+//print_r($_SESSION);
+//echo '</pre>';
 //if (!isset($_SESSION)){
 //    session_start();
 //    $_SESSION[$post->ID] = 0;

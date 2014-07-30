@@ -7,6 +7,17 @@
     <meta name="description" content="description" />
     <?php wp_head();
     session_start();
+    var_dump($_POST);
+    if(isset($_POST['product'])&&!empty($_POST['product'])){
+        $product= $_POST['product'];
+        unset($product[$_POST['id']]['count']);
+        unset($product[$_POST['id']]['id']);
+
+        $_SESSION['product'][json_encode($product)]=$_POST['product'][$_POST['id']];
+
+
+    }
+//unset($_SESSION['product']);
     echo '<pre>';
     print_r($_SESSION);
     echo '</pre>';
@@ -32,9 +43,17 @@
                     <li><a href="<?php echo (get_permalink(70));?>">Контакты</a></li>
                 </ul>
                 <div class="basket">
-                    <p class="head">корзина</p>
-                    <p><strong>3</strong> товаров</p>
-                    <p><strong>10500</strong> руб.</p>
+                    <p class="head"><a href="<?php echo (get_permalink(73));?>">корзина</a></p>
+                    <?php $basket = 0;?>
+                    <?php foreach($_SESSION['product'] as $session){?>
+                    <?php $basket++?>
+                    <?php };?>
+                    <p><strong><?php echo $basket; ?></strong> товаров</p>
+                    <?php $sum = 0;?>
+                    <?php foreach($_SESSION['product'] as $sessionprice){?>
+                    <?php $sum = $sum + simple_fields_fieldgroup("price", $sessionprice['id'])?>
+                    <?php };?>
+                    <p><strong><?php echo $sum; ?></strong> руб.</p>
                 </div>
                 <ul class="language">
                     <li><a href="#">En</a></li>
