@@ -4,7 +4,7 @@
                 <div class="page-all">
                     <div class="block-main basket-block">
                         <div class="prod-name">
-                            <a class="forw" href="<?php echo (get_permalink(13));?>"></a>
+                            <a class="forw" href="javascript:javascript:history.go(-1)"></a>
                             <span>Корзина</span>
                         </div>
                         <div class="basket-list">

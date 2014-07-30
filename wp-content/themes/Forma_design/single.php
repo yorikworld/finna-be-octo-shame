@@ -47,7 +47,7 @@
                     </div>
                     <div class="product-info">
                         <div class="prod-name">
-                            <a href="<?php echo (get_permalink(13));?>" class="forw"></a>
+                            <a href="javascript:javascript:history.go(-1)" class="forw"></a>
                             <span><?php if (get_the_title($post->id) == "") { echo "Без названия";} else {echo the_title();}; ?></span>
                         </div>
                         <div class="about-product">
