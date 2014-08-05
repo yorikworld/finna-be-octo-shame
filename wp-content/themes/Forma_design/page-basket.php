@@ -10,6 +10,7 @@
                         <div class="basket-list">
                             <ul>
                                 <?php $sum = 0; ?>
+                                <?php if (empty($_SESSION['product'])) {echo "Корзина пуста";} else { ?>
                                 <?php foreach($_SESSION['product'] as $session){?>
                                     <?php $sum = $sum + simple_fields_fieldgroup("price", $session['id'])?>
 
@@ -40,35 +41,50 @@
                                                             <div class="select-box">
                                                                <label>Цвет:</label>
                                                                <select>
-                                                                   <option>Белый</option>
-                                                                   <option>Серый</option>
-                                                                   <option>Черный</option>
+                                                                   <?php foreach (simple_fields_fieldgroup("color", $session['id']) as $color){ ?>
+                                                                   <?php if ($color === $session['color']) {echo "<option selected=selected> $color </option>";} else {?>
+                                                                    <?php echo "<option> $color </option>";};}; ?>
                                                                </select>
                                                             </div>
                                                             <div class="select-box">
                                                                <label>Размер</label>
                                                                <select>
-                                                                   <option>40</option>
-                                                                   <option>42</option>
-                                                                   <option>44</option>
+                                                                   <?php foreach (simple_fields_fieldgroup("sizes_slug", $session['id']) as $size){ ?>
+                                                                       <?php if ($size === $session['size']) {echo "<option selected=selected> $size </option>";} else {?>
+                                                                           <?php echo "<option> $size </option>";};}; ?>
                                                                </select>
                                                             </div>
                                                             <div class="change">
-                                                                <div class="all">Количество: <span>1</span></div>
+                                                                <div class="all">Количество: <span id="span"><?php echo $session['count'] ?></span></div>
+                                                                <input id="count<?php echo $session['id'];?>" type = "hidden" name="product[<?php echo $session['id'] ?>][count]"  value="<?php echo $session['count']?>">
                                                                 <div class="plus-minus">
-                                                                    <a href="#"></a>
-                                                                    <a href="#"></a>
+                                                                    <a class="minus" onClick = "doMinus();" ></a>
+                                                                    <a class="plus" onClick = "doPlus();" ></a>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                                <script>
+                                                                    function doMinus(){
+                                                                        if(document.getElementById("count<?php echo $session['id'];?>").value > 1){
+                                                                            document.getElementById("count<?php echo $session['id'];?>").value = --document.getElementById("count<?php echo $session['id'];?>").value;
+                                                                            document.getElementById("span").textContent=document.getElementById("count<?php echo $session['id'];?>").value;
+                                                                        }
+                                                                    }
+
+                                                                    function doPlus(){
+                                                                        document.getElementById("count<?php echo $session['id'];?>").value = ++document.getElementById("count<?php echo $session['id'];?>").value;
+                                                                        document.getElementById("span").textContent=document.getElementById("count<?php echo $session['id'];?>").value;
+                                                                    }
+                                                                </script>
+                                                           </div>
                                                     </fieldset>
                                                 </form>
                                             </div>
-                                            <span class="delete-product"></span>
+                                            <a class="delete-product" onClick = "<?php unset($_SESSION['product'][json_encode($_POST['product'])]);?>" ></a>
+<!--                                            <span class="delete-product"></span>-->
                                         </div>
                                     </div>
                                 </li>
-                                <?php };?>
+                                <?php }};?>
                             </ul>
                             <div class="result">
                                 <div class="summ">

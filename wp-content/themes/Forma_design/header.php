@@ -7,7 +7,7 @@
     <meta name="description" content="description" />
     <?php wp_head();
     session_start();
-    var_dump($_POST);
+//    var_dump($_POST);
     if(isset($_POST['product'])&&!empty($_POST['product'])){
         $product= $_POST['product'];
         unset($product[$_POST['id']]['count']);
