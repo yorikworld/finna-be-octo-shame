@@ -1,4 +1,22 @@
 <?php get_header()?>
+    <script>
+        jQuery(document).ready(function($){
+            $('.minus').click(function(){
+               var count= $(this).parents('.change').children('#count').val();
+                if(count!=1){
+                    count--;
+                }
+                $(this).parents('.change').children('#count').val(count);
+                $(this).parents('.change').find('#span').text(count);
+            });
+            $('.plus').click(function(){
+                var count= $(this).parents('.change').children('#count').val();
+                count++;
+                $(this).parents('.change').children('#count').val(count);
+                $(this).parents('.change').find('#span').text(count);
+            });
+        });
+    </script>
         <div class="content">
             <div class="wrapper">
                 <div class="page-all">
@@ -42,39 +60,31 @@
                                                                <label>Цвет:</label>
                                                                <select>
                                                                    <?php foreach (simple_fields_fieldgroup("color", $session['id']) as $color){ ?>
-                                                                   <?php if ($color === $session['color']) {echo "<option selected=selected> $color </option>";} else {?>
-                                                                    <?php echo "<option> $color </option>";};}; ?>
+                                                                   <?php if ($color === $session['color']) {echo "<option selected='selected'> $color </option>";} else {?>
+                                                                    <?php echo "<option> $color </option>";
+                                                                       };
+                                                                   }; ?>
                                                                </select>
                                                             </div>
                                                             <div class="select-box">
                                                                <label>Размер</label>
                                                                <select>
                                                                    <?php foreach (simple_fields_fieldgroup("sizes_slug", $session['id']) as $size){ ?>
-                                                                       <?php if ($size === $session['size']) {echo "<option selected=selected> $size </option>";} else {?>
-                                                                           <?php echo "<option> $size </option>";};}; ?>
+                                                                       <?php if ($size === $session['size']) {echo "<option selected='selected'> $size </option>";} else {?>
+                                                                           <?php echo "<option> $size </option>";
+                                                                       };
+                                                                   }; ?>
                                                                </select>
                                                             </div>
                                                             <div class="change">
                                                                 <div class="all">Количество: <span id="span"><?php echo $session['count'] ?></span></div>
-                                                                <input id="count<?php echo $session['id'];?>" type = "hidden" name="product[<?php echo $session['id'] ?>][count]"  value="<?php echo $session['count']?>">
+                                                                <input id="count" type = "hidden" name="product[<?php echo $session['id'] ?>][count]"  value="<?php echo $session['count']?>">
                                                                 <div class="plus-minus">
-                                                                    <a class="minus" onClick = "doMinus();" ></a>
-                                                                    <a class="plus" onClick = "doPlus();" ></a>
+                                                                    <a class="minus"  ></a>
+                                                                    <a class="plus"  ></a>
                                                                 </div>
                                                             </div>
-                                                                <script>
-                                                                    function doMinus(){
-                                                                        if(document.getElementById("count<?php echo $session['id'];?>").value > 1){
-                                                                            document.getElementById("count<?php echo $session['id'];?>").value = --document.getElementById("count<?php echo $session['id'];?>").value;
-                                                                            document.getElementById("span").textContent=document.getElementById("count<?php echo $session['id'];?>").value;
-                                                                        }
-                                                                    }
 
-                                                                    function doPlus(){
-                                                                        document.getElementById("count<?php echo $session['id'];?>").value = ++document.getElementById("count<?php echo $session['id'];?>").value;
-                                                                        document.getElementById("span").textContent=document.getElementById("count<?php echo $session['id'];?>").value;
-                                                                    }
-                                                                </script>
                                                            </div>
                                                     </fieldset>
                                                 </form>
