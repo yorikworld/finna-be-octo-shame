@@ -58,7 +58,7 @@
                                                         <div class="line">
                                                             <div class="select-box">
                                                                <label>Цвет:</label>
-                                                               <select>
+                                                               <select name="delete[<?php echo $session['id'] ?>][color]">
                                                                    <?php foreach (simple_fields_fieldgroup("color", $session['id']) as $color){ ?>
                                                                    <?php if ($color == $session['color']) {echo "<option selected='selected'> $color </option>";} else {?>
                                                                     <?php echo "<option> $color </option>";
@@ -68,7 +68,7 @@
                                                             </div>
                                                             <div class="select-box">
                                                                <label>Размер</label>
-                                                               <select>
+                                                               <select name="delete[<?php echo $session['id'] ?>][size]">
                                                                    <?php foreach (simple_fields_fieldgroup("sizes_slug", $session['id']) as $size){ ?>
                                                                        <?php if ($size == $session['size']) {echo "<option selected='selected'> $size </option>";} else {?>
                                                                            <?php echo "<option> $size </option>";
@@ -92,6 +92,7 @@
                                             <form method="post">
 <!--                                            <a class="delete-product" ></a>-->
 <!--                                            <span class="delete-product"></span>-->
+                                                <input type="hidden" name="id" value="<?php echo $session['id'] ?>" />
                                                 <input type="hidden" name="delete[<?php echo $session[json_encode($session)]?>]" value="<?php echo $session['id'] ?>" />
                                                 <input type="submit" class="delete-product"  value="" />
                                             </form>
