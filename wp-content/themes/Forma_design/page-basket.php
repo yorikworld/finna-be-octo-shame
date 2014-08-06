@@ -30,7 +30,7 @@
                                 <?php $sum = 0; ?>
                                 <?php if (empty($_SESSION['product'])) {echo "Корзина пуста";} else { ?>
                                 <?php foreach($_SESSION['product'] as $session){?>
-                                    <?php $sum = $sum + simple_fields_fieldgroup("price", $session['id'])?>
+                                    <?php $sum = $sum + simple_fields_fieldgroup("price", $session['id'])* $session['count']?>
 
                                 <li>
                                     <div class="pic">
@@ -60,7 +60,7 @@
                                                                <label>Цвет:</label>
                                                                <select>
                                                                    <?php foreach (simple_fields_fieldgroup("color", $session['id']) as $color){ ?>
-                                                                   <?php if ($color === $session['color']) {echo "<option selected='selected'> $color </option>";} else {?>
+                                                                   <?php if ($color == $session['color']) {echo "<option selected='selected'> $color </option>";} else {?>
                                                                     <?php echo "<option> $color </option>";
                                                                        };
                                                                    }; ?>
@@ -70,7 +70,7 @@
                                                                <label>Размер</label>
                                                                <select>
                                                                    <?php foreach (simple_fields_fieldgroup("sizes_slug", $session['id']) as $size){ ?>
-                                                                       <?php if ($size === $session['size']) {echo "<option selected='selected'> $size </option>";} else {?>
+                                                                       <?php if ($size == $session['size']) {echo "<option selected='selected'> $size </option>";} else {?>
                                                                            <?php echo "<option> $size </option>";
                                                                        };
                                                                    }; ?>

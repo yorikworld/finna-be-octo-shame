@@ -51,7 +51,7 @@
                     <p><strong><?php echo $basket; ?></strong> товаров</p>
                     <?php $sum = 0;?>
                     <?php foreach($_SESSION['product'] as $sessionprice){?>
-                    <?php $sum = $sum + simple_fields_fieldgroup("price", $sessionprice['id'])?>
+                    <?php $sum = $sum + simple_fields_fieldgroup("price", $sessionprice['id']) * $sessionprice['count']?>
                     <?php };?>
                     <p><strong><?php echo $sum; ?></strong> руб.</p>
                 </div>
