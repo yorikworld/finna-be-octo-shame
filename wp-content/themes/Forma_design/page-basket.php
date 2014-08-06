@@ -92,9 +92,9 @@
                                             <form method="post">
 <!--                                            <a class="delete-product" ></a>-->
 <!--                                            <span class="delete-product"></span>-->
-                                                <input type="hidden" name="delete[id]" value="<?php echo $session['id'] ?>" />
-                                                <input type="hidden" name="delete[color]" value="<?php echo $ses_color; ?>" />
-                                                <input type="hidden" name="delete[size]" value="<?php echo $ses_size; ?>" />
+                                                <input type="hidden" name="delete[<?php echo $session['id']?>][id]" value="<?php echo $session['id'] ?>" />
+                                                <input type="hidden" name="delete[<?php echo $session['id']?>][color]" value="<?php echo $ses_color; ?>" />
+                                                <input type="hidden" name="delete[<?php echo $session['id']?>][size]" value="<?php echo $ses_size; ?>" />
                                                 <input type="submit" class="delete-product"  value="" />
                                             </form>
                                         </div>
