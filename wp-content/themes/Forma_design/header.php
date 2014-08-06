@@ -7,7 +7,9 @@
     <meta name="description" content="description" />
     <?php wp_head();
     session_start();
-//    var_dump($_POST);
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
     if(isset($_POST['product'])&&!empty($_POST['product'])){
         $product= $_POST['product'];
         unset($product[$_POST['id']]['count']);
@@ -16,6 +18,10 @@
         $_SESSION['product'][json_encode($product)]=$_POST['product'][$_POST['id']];
 
 
+    };
+    if (isset($_POST['delete'])&&!empty($_POST['delete'])) {
+        $delete = $_POST['delete'];
+    unset($_SESSION['product'][json_encode($delete)]);
     }
 //unset($_SESSION['product']);
     echo '<pre>';

@@ -89,12 +89,17 @@
                                                     </fieldset>
                                                 </form>
                                             </div>
-                                            <a class="delete-product" onClick = "<?php unset($_SESSION['product'][json_encode($_POST['product'])]);?>" ></a>
+                                            <form method="post">
+<!--                                            <a class="delete-product" ></a>-->
 <!--                                            <span class="delete-product"></span>-->
+                                                <input type="hidden" name="delete[<?php echo $session[json_encode($session)]?>]" value="<?php echo $session['id'] ?>" />
+                                                <input type="submit" class="delete-product"  value="" />
+                                            </form>
                                         </div>
                                     </div>
                                 </li>
-                                <?php }};?>
+                                <?php };
+                                };?>
                             </ul>
                             <div class="result">
                                 <div class="summ">
