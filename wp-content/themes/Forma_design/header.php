@@ -21,7 +21,7 @@
     };
     if (isset($_POST['delete'])&&!empty($_POST['delete'])) {
         $delete = $_POST['delete'];
-    unset($_SESSION['product'][json_encode($delete)]);
+    unset($_SESSION['product']['id'][json_encode($delete)]);
     }
 //unset($_SESSION['product']);
     echo '<pre>';
