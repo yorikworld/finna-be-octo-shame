@@ -21,10 +21,13 @@
     };
     if (isset($_POST['delete'])&&!empty($_POST['delete'])) {
         $delete = $_POST['delete'];
-        unset($delete[$_POST['id']]['count']);
-        unset($delete[$_POST['id']]['id']);
-    print($_SESSION['product']['id'][json_encode($delete)]);
-    }
+        unset($delete[$_POST['id']]);
+//        unset($delete['id']['id']);
+        echo '<pre>';
+       var_dump ($delete);
+        echo '</pre>';
+//    var_dump (json_encode($delete));
+    };
 //unset($_SESSION['product']);
     echo '<pre>';
     print_r($_SESSION);
