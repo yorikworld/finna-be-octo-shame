@@ -59,8 +59,8 @@
                                                 <div class="select-box">
                                                    <label>Цвет:</label>
                                                    <select name="product[<?php echo $post->ID ?>][color]">
-                                                       <?php foreach (simple_fields_fieldgroup("color", $post->ID) as $color){ ?>
-                                                       <option><?php echo $color; }; ?></option>
+                                                       <?php $color = 1; foreach (simple_fields_fieldgroup("color", $post->ID) as $color){ ?>
+                                                       <option><?php if($color !== 1) {echo $color;} else {echo "Н/Д";}; }; ?></option>
                                                    </select>
                                                 </div>
                                                 <div class="select-box">

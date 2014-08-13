@@ -97,6 +97,7 @@
                                                 <input type="hidden" name="delete[<?php echo $session['id']?>][size]" value="<?php echo $ses_size; ?>" />
                                                 <input type="hidden" name="delete[<?php echo $session['id']?>][count]" value="<?php echo $session['count']; ?>" />
                                                 <input type="hidden" name="delete[<?php echo $session['id']?>][id]" value="<?php echo $session['id'] ?>" />
+                                                <input type="hidden" name="id" value="<?php echo $session['id'] ?>" />
                                                 <input type="submit" class="delete-product"  value="" />
                                             </form>
                                         </div>

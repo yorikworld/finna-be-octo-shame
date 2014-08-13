@@ -8,6 +8,7 @@
     <?php wp_head();
     session_start();
     echo '<pre>';
+    echo "Post";
     print_r($_POST);
     echo '</pre>';
     if(isset($_POST['product'])&&!empty($_POST['product'])){
@@ -21,15 +22,17 @@
     };
     if (isset($_POST['delete'])&&!empty($_POST['delete'])) {
         $delete = $_POST['delete'];
-        unset($delete[$_POST['id']]);
-//        unset($delete['id']['id']);
+        unset($delete[$_POST['id']]['id']);
+        unset($delete[$_POST['id']]['count']);
         echo '<pre>';
-       var_dump ($delete);
+        echo "json";
+       print_r (json_encode($delete));
         echo '</pre>';
-//    var_dump (json_encode($delete));
+    unset ($_SESSION['product'][(json_encode($delete))]);
     };
 //unset($_SESSION['product']);
     echo '<pre>';
+    echo "session";
     print_r($_SESSION);
     echo '</pre>';
     ?>
