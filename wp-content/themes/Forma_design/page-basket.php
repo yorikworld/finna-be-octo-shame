@@ -59,6 +59,7 @@
                                                             <div class="select-box">
                                                                <label>Цвет:</label>
                                                                <select name="delete[<?php echo $session['id'] ?>][color]">
+                                                                   <option><?php echo "Выбор цвета"; $ses_color = "Выбор цвета"; ?></option>
                                                                    <?php foreach (simple_fields_fieldgroup("color", $session['id']) as $color){ ?>
                                                                    <?php if ($color == $session['color']) {echo "<option selected='selected'> $color </option>"; $ses_color = $color;} else {?>
                                                                     <?php echo "<option> $color </option>";
@@ -68,7 +69,8 @@
                                                             </div>
                                                             <div class="select-box">
                                                                <label>Размер</label>
-                                                               <select name="delete[<?php echo $session['id'] ?>][size]">
+                                                                <select name="delete[<?php echo $session['id'] ?>][size]">
+                                                                   <option><?php echo "Выбор размера"; $ses_size = "Выбор размера"; ?></option>
                                                                    <?php foreach (simple_fields_fieldgroup("sizes_slug", $session['id']) as $size){ ?>
                                                                        <?php if ($size == $session['size']) {echo "<option selected='selected'> $size </option>"; $ses_size = $size;} else {?>
                                                                            <?php echo "<option> $size </option>";
