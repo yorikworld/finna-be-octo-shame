@@ -59,7 +59,6 @@
                                                 <div class="select-box">
                                                    <label>Цвет:</label>
                                                    <select name="product[<?php echo $post->ID ?>][color]">
-                                                       <option><?php echo "Выбор цвета"; ?></option>
                                                        <?php foreach (simple_fields_fieldgroup("color", $post->ID) as $color){ ?>
                                                        <option><?php echo $color; }; ?></option>
                                                    </select>
@@ -67,7 +66,6 @@
                                                 <div class="select-box">
                                                    <label>Размер</label>
                                                    <select name="product[<?php echo $post->ID ?>][size]">
-                                                       <option><?php echo "Выбор размера"; ?></option>
                                                        <?php foreach (simple_fields_fieldgroup("sizes_slug", $post->ID) as $size){ ?>
                                                            <option><?php echo $size; }; ?></option>
                                                    </select>

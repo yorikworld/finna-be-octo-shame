@@ -138,24 +138,21 @@ function content($limit) {
     return $content;
 }
 
-function my_project_updated_send_email( $post_id ) {
-
-    // If this is just a revision, don't send the email.
-    if ( wp_is_post_revision( $post_id ) )
-        return;
-    if(!isset($_POST['simple_fields_fieldgroups']['7']['1']))
-    echo "<script> alert('Заполените обязательное поле цвет'); window.location.reload() </script>";
-    if(!isset($_POST['simple_fields_fieldgroups']['6']['2']))
-    echo "<script> alert('Заполените обязательное поле размер'); window.location.reload() </script>";
 
 
-    echo "<pre>";
-    var_dump($_POST);
-    echo "</pre>";
 
+function pre_save_post_action($post_id) {
+    if($_POST['post_type'] == "products"){
+    if($_POST['simple_fields_fieldgroups']['7']['1'] == null){
+    echo "<script> alert('Заполените обязательное поле цвет'); javascript:history.go(-1) </script>"; die();}
+    if($_POST['simple_fields_fieldgroups']['6']['2'] == null){
+        echo "<script> alert('Заполените обязательное поле размер'); javascript:history.go(-1) </script>"; die();}
+    }
 }
 
-add_action( 'save_post', 'my_project_updated_send_email' );
+add_action('pre_post_update', 'pre_save_post_action');
+
+
 
 add_theme_support('post-thumbnails'); // поддержка миниатюр
 set_post_thumbnail_size(288, 177, false);

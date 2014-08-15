@@ -35,14 +35,14 @@
                                 <li>
                                     <div class="pic">
                                         <?php if (wp_get_attachment_url( get_post_thumbnail_id($session['id']))) {?>
-                                        <img src="/timthumb.php?src=<?php echo wp_get_attachment_url( get_post_thumbnail_id($session['id']));?>&w=120&h=196&a=tc" />
+                                        <a href="<?php echo get_permalink($session['id']); ?>"><img src="/timthumb.php?src=<?php echo wp_get_attachment_url( get_post_thumbnail_id($session['id']));?>&w=120&h=196&a=tc" /></a>
                                         <?php } else { ?>
-                                          <img src="/timthumb.php?src=/wp-content/uploads/noimage.jpg&w=120&h=196&a=tc"/>
+                                        <a href="<?php echo get_permalink($session['id']); ?>"><img src="/timthumb.php?src=/wp-content/uploads/noimage.jpg&w=120&h=196&a=tc"/></a>
                                             <?php };?>
                                     </div>
                                     <div class="basket-info">
                                         <div class="top">
-                                            <h4><?php if (get_the_title($session['id']) == "") {echo "Без названия";} else {echo get_the_title($session['id']);};?></h4>
+                                            <a href="<?php echo get_permalink($session['id']); ?>"><h4><?php if (get_the_title($session['id']) == "") {echo "Без названия";} else {echo get_the_title($session['id']);};?></h4></a>
                                             <span class="price"><?php if (simple_fields_fieldgroup("price", $session['id']) == "") {echo "0 грн";} else echo simple_fields_fieldgroup("price", $session['id']);?></span>
                                         </div>
                                         <?php $thetitle = get_post_field('post_content', $session['id']); ?>
@@ -59,7 +59,6 @@
                                                             <div class="select-box">
                                                                <label>Цвет:</label>
                                                                <select name="delete[<?php echo $session['id'] ?>][color]">
-                                                                   <option><?php echo "Выбор цвета"; $ses_color = "Выбор цвета"; ?></option>
                                                                    <?php foreach (simple_fields_fieldgroup("color", $session['id']) as $color){ ?>
                                                                    <?php if ($color == $session['color']) {echo "<option selected='selected'> $color </option>"; $ses_color = $color;} else {?>
                                                                     <?php echo "<option> $color </option>";
@@ -70,7 +69,6 @@
                                                             <div class="select-box">
                                                                <label>Размер</label>
                                                                 <select name="delete[<?php echo $session['id'] ?>][size]">
-                                                                   <option><?php echo "Выбор размера"; $ses_size = "Выбор размера"; ?></option>
                                                                    <?php foreach (simple_fields_fieldgroup("sizes_slug", $session['id']) as $size){ ?>
                                                                        <?php if ($size == $session['size']) {echo "<option selected='selected'> $size </option>"; $ses_size = $size;} else {?>
                                                                            <?php echo "<option> $size </option>";
@@ -113,8 +111,10 @@
                                     <p>Итого:</p>
                                   <p><span> <?php echo $sum;?></span></p>
                                 </div>
-                                <a href="#" class="make-order"></a>
+                                <a href="<?php echo get_permalink(89);?>"  class="make-order"></a>
+<!--                                <input type="submit" class="make-order" value="" />-->
                             </div>
+
                         </div>
                     </div>
                 </div>
