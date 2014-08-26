@@ -90,9 +90,6 @@
                                                 </form>
                                             </div>
                                             <form method="post">
-<!--                                            <a class="delete-product" ></a>-->
-<!--                                            <span class="delete-product"></span>-->
-
                                                 <input type="hidden" name="delete[<?php echo $session['id']?>][color]" value="<?php echo $ses_color; ?>" />
                                                 <input type="hidden" name="delete[<?php echo $session['id']?>][size]" value="<?php echo $ses_size; ?>" />
                                                 <input type="hidden" name="delete[<?php echo $session['id']?>][count]" value="<?php echo $session['count']; ?>" />
@@ -112,7 +109,6 @@
                                   <p><span> <?php echo $sum;?></span></p>
                                 </div>
                                 <a href="<?php echo get_permalink(89);?>"  class="make-order"></a>
-<!--                                <input type="submit" class="make-order" value="" />-->
                             </div>
 
                         </div>

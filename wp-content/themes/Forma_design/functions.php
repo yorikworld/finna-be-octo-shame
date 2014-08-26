@@ -83,12 +83,40 @@ function products() { // создаем новый тип записи
             'menu_position' => 6, // указываем место в левой баковой панели
             'rewrite' => array('slug' => 'products'), // указываем slug для ссылок например: mysite/reviews/
             'supports' => array('title','editor','thumbnail'), // тут мы активируем поддержку миниатюр
-            'taxonomies' => array('genre'),
+            'taxonomies' => array('genre','section'),
         )
     );
 }
 
 add_action( 'init', 'products' ); // инициируем добавления типа
+
+function look() { // создаем новый тип записи
+    register_post_type( 'look', // указываем названия типа
+        array(
+            'labels' => array(
+                'name' => __( 'look' ), // даем названия разделу для панели управления
+                'singular_name' => __( 'look' ), // даем названия одной записи
+                'add_new' => __('Добавить'),// далее полная русификация админ. панели
+                'add_new_item' => __('Добавить look'),
+                'edit_item' => __('Редактировать look'),
+                'new_item' => __('Новый look'),
+                'all_items' => __('Все look-и'),
+                'view_item' => __('Просмотр look-а'),
+                'search_items' => __('Поиск'),
+                'not_found' => __('Нет look-ов'),
+                'not_found_in_trash' => __('look-и не найдены'),
+                'menu_name' => 'look'
+
+            ),
+            'public' => true,
+            'menu_position' => 7, // указываем место в левой баковой панели
+            'rewrite' => array('slug' => 'look'), // указываем slug для ссылок например: mysite/reviews/
+            'supports' => array('title','editor','thumbnail'), // тут мы активируем поддержку миниатюр
+        )
+    );
+}
+
+add_action( 'init', 'look' ); // инициируем добавления типа
 
 
 // hook into the init action and call create_book_taxonomies when it fires
@@ -123,6 +151,38 @@ function create_book_taxonomies() {
     register_taxonomy( 'genre', array( 'book' ), $args );
 
 }
+
+add_action( 'init', 'site_taxonomies', 0 );
+
+function site_taxonomies() {
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name'              => _x( 'Разделы сайта', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Разделы сайта', 'taxonomy singular name' ),
+        'search_items'      => __( 'Поиск раздела' ),
+        'all_items'         => __( 'Все разделы' ),
+        'parent_item'       => __( 'Родительский раздел' ),
+        'parent_item_colon' => __( 'Parent Genre:' ),
+        'edit_item'         => __( 'Редактировать' ),
+        'update_item'       => __( 'Обновить' ),
+        'add_new_item'      => __( 'Добавить новый раздел' ),
+        'new_item_name'     => __( 'Имя нового раздела' ),
+        'menu_name'         => __( 'Разделы' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'section' )
+    );
+
+    register_taxonomy( 'section', array( 'book' ), $args );
+
+}
+
 
 function content($limit) {
     $content = explode(' ', get_the_content(), $limit);

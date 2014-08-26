@@ -24,6 +24,13 @@ get_header()?>
                         <ul class="catalog">
                             <?php $args = array(
                                 'post_type' => 'products',
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => 'section',
+                                        'field'    => 'slug',
+                                        'terms'    => 'forma',
+                                       ),
+                                )
                             );?>
                             <?php $the_query = new WP_Query($args); ?>
                             <?php if ($the_query->have_posts()) {

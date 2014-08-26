@@ -23,29 +23,37 @@
                         <div class="head-top">
                             <span>форма</span>
                         </div>
-                        <a href="#"><img src="<?php echo get_bloginfo('stylesheet_directory') ?>/img/photopic.png"
-                                         height="342" width="211" alt=""/></a>
+                        <?php $index = wp_get_attachment_url( get_post_thumbnail_id(simple_fields_value('index_forma_slug',93)));?>
+                        <a href="<?php echo get_permalink(simple_fields_value('index_forma_slug',93)); ?>">
+                            <img src="/timthumb.php?src=<?php echo($index) ? $index : "/wp-content/uploads/noimage.jpg";?>&w=211&h=343&a=tc"/>
+                        </a>
                     </li>
                     <li>
                         <div class="head-top">
                             <span>форма спорт</span>
                         </div>
-                        <a href="#"><img src="<?php echo get_bloginfo('stylesheet_directory') ?>/img/photopic.png"
-                                         height="342" width="211" alt=""/></a>
+                        <?php $index = wp_get_attachment_url( get_post_thumbnail_id(simple_fields_value('index_forma_sport_slug',93)));?>
+                        <a href="<?php echo get_permalink(simple_fields_value('index_forma_sport_slug',93)); ?>">
+                            <img src="/timthumb.php?src=<?php echo($index) ? $index : "/wp-content/uploads/noimage.jpg";?>&w=211&h=343&a=tc"/>
+                        </a>
                     </li>
                     <li>
                         <div class="head-top">
                             <span>look</span>
                         </div>
-                        <a href="#"><img src="<?php echo get_bloginfo('stylesheet_directory') ?>/img/photopic.png"
-                                         height="342" width="211" alt=""/></a>
+                        <?php $index = wp_get_attachment_url( get_post_thumbnail_id(simple_fields_value('look_select_slug',99)));?>
+                        <a href="<?php echo get_permalink(97)?>">
+                            <img src="/timthumb.php?src=<?php echo($index) ? $index : "/wp-content/uploads/noimage.jpg";?>&w=211&h=343&a=tc"/>
+                        </a>
                     </li>
                     <li>
                         <div class="head-top">
                             <span>sale</span>
                         </div>
-                        <a href="#"><img src="<?php echo get_bloginfo('stylesheet_directory') ?>/img/photopic.png"
-                                         height="342" width="211" alt=""/></a>
+                        <?php $index = wp_get_attachment_url( get_post_thumbnail_id(simple_fields_value('index_sale_slug',93)));?>
+                        <a href="<?php echo get_permalink(simple_fields_value('index_sale_slug',93)); ?>">
+                            <img src="/timthumb.php?src=<?php echo($index) ? $index : "/wp-content/uploads/noimage.jpg";?>&w=211&h=343&a=tc"/>
+                        </a>
                     </li>
                 </ul>
             </div>

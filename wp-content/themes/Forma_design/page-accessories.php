@@ -33,7 +33,7 @@ get_header()?>
                                 array(
                                     'taxonomy' => 'section',
                                     'field'    => 'slug',
-                                    'terms'    => 'forma-sport',
+                                    'terms'    => 'accessories',
                                 ),
                             )
                         );?>
