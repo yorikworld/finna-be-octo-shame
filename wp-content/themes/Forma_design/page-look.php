@@ -9,12 +9,12 @@
                         </div>
                         <div>
                             <ul>
-<!--                            --><?php //foreach (simple_fields_fieldgroup("look_slug", simple_fields_value('look_select_slug',99)) as $look){ ?>
-                                <?php echo "!!!"; ?>
-<!--                            --><?php //};?>
-
-
-
+<?php foreach (simple_fields_values("look_slug",simple_fields_value('look_select_slug',99)) as $look){
+$thumb = wp_get_attachment_url(get_post_thumbnail_id($look['id']))?>
+<a href="<?php echo $look['permalink']; ?>"><img src="/timthumb.php?src=<?php echo $thumb ? $thumb : "/wp-content/uploads/noimage.jpg";?>&w=211&h=343&a=tc"/></a>
+<?php
+};
+?>
                             </ul>
                         </div>
                     </div>
