@@ -5,7 +5,7 @@
  * Date: 18.07.14
  * Time: 12:17
  */
-get_header()?>
+get_header();?>
     <div class="content">
         <div class="wrapper">
             <div class="page-all">

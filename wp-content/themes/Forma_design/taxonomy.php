@@ -34,30 +34,6 @@ get_header()?>
         <?php } endwhile; ?>
     </ul>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--                    <ul class="catalog">-->
-<!--                        <li><a href="#"><img src="--><?php //echo get_bloginfo( 'stylesheet_directory') ?><!--/img/catalog-pic.png" height="288" width="177" alt="" /></a></li>-->
-<!--                        <li><a href="#"><img src="--><?php //echo get_bloginfo( 'stylesheet_directory') ?><!--/img/catalog-pic2.png" height="288" width="177" alt="" /></a></li>-->
-<!--                        <li><a href="#"><img src="--><?php //echo get_bloginfo( 'stylesheet_directory') ?><!--/img/catalog-pic.png" height="288" width="177" alt="" /></a></li>-->
-<!--                        <li><a href="#"><img src="--><?php //echo get_bloginfo( 'stylesheet_directory') ?><!--/img/catalog-pic3.png" height="288" width="177" alt="" /></a></li>-->
-<!--                        <li><a href="#"><img src="--><?php //echo get_bloginfo( 'stylesheet_directory') ?><!--/img/catalog-pic.png" height="288" width="177" alt="" /></a></li>-->
-<!--                        <li><a href="#"><img src="--><?php //echo get_bloginfo( 'stylesheet_directory') ?><!--/img/catalog-pic2.png" height="288" width="177" alt="" /></a></li>-->
-<!--                        <li><a href="#"><img src="--><?php //echo get_bloginfo( 'stylesheet_directory') ?><!--/img/catalog-pic3.png" height="288" width="177" alt="" /></a></li>-->
-<!--                        <li><a href="#"><img src="--><?php //echo get_bloginfo( 'stylesheet_directory') ?><!--/img/catalog-pic.png" height="288" width="177" alt="" /></a></li>-->
-<!--                        <li><a href="#"><img src="--><?php //echo get_bloginfo( 'stylesheet_directory') ?><!--/img/catalog-pic3.png" height="288" width="177" alt="" /></a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
             </div>
         </div>
     </div>
