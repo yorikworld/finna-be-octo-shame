@@ -43,7 +43,9 @@
                                     <div class="basket-info">
                                         <div class="top">
                                             <a href="<?php echo get_permalink($session['id']); ?>"><h4><?php if (get_the_title($session['id']) == "") {echo "Без названия";} else {echo get_the_title($session['id']);};?></h4></a>
-                                            <span class="price"><?php if (simple_fields_fieldgroup("price", $session['id']) == "") {echo "0 грн";} else echo simple_fields_fieldgroup("price", $session['id']);?></span>
+                                            <span class="price"><?php if (simple_fields_fieldgroup("price", $session['id']) == "") {echo "0 грн";} else ?> Цена: <?php echo simple_fields_fieldgroup("price", $session['id']);?></span>
+                                            <br><br>
+                                            <span class="price"><?php if (simple_fields_fieldgroup("price", $session['id']) == "") {echo "0 грн";} else ?> Сумма: <?php echo simple_fields_fieldgroup("price", $session['id'])* $session['count'];?></span>
                                         </div>
                                         <?php $thetitle = get_post_field('post_content', $session['id']); ?>
                                         <?php $getlength = strlen($thetitle);?>
@@ -80,11 +82,10 @@
                                                                 <div class="all">Количество: <span id="span"><?php echo $session['count'] ?></span></div>
                                                                 <input id="count" type = "hidden" name="product[<?php echo $session['id'] ?>][count]"  value="<?php echo $session['count']?>">
                                                                 <div class="plus-minus">
-                                                                    <a class="minus"  ></a>
-                                                                    <a class="plus"  ></a>
+                                                                    <a class="minus"></a>
+                                                                    <a class="plus"></a>
                                                                 </div>
                                                             </div>
-
                                                            </div>
                                                     </fieldset>
                                                 </form>
@@ -108,7 +109,10 @@
                                     <p>Итого:</p>
                                   <p><span> <?php echo $sum;?></span></p>
                                 </div>
-                                <a href="<?php echo get_permalink(89);?>"  class="make-order"></a>
+                                <form method="post" action="<?php echo (get_permalink(108));?>">
+                                <input type="submit" name="make-order" class="make-order" value="">
+                                </form>
+<!--                                <a href=""  class="make-order"></a>-->
                             </div>
 
                         </div>

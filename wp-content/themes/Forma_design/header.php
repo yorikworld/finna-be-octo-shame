@@ -30,6 +30,10 @@
         echo '</pre>';
     unset ($_SESSION['product'][(json_encode($delete))]);
     };
+    if (isset($_POST['make-order'])) {
+
+    }
+
 //unset($_SESSION['product']);
     echo '<pre>';
     echo "session";

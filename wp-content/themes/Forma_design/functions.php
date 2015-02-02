@@ -118,6 +118,34 @@ function look() { // создаем новый тип записи
 
 add_action( 'init', 'look' ); // инициируем добавления типа
 
+function orders() { // создаем новый тип записи
+    register_post_type( 'orders', // указываем названия типа
+        array(
+            'labels' => array(
+                'name' => __( 'Заказы' ), // даем названия разделу для панели управления
+                'singular_name' => __( 'orders' ), // даем названия одной записи
+                'add_new' => __('Добавить'),// далее полная русификация админ. панели
+                'add_new_item' => __('Добавить заказ'),
+                'edit_item' => __('Редактировать заказ'),
+                'new_item' => __('Новый заказ'),
+                'all_items' => __('Все заказы'),
+                'view_item' => __('Просмотр заказа'),
+                'search_items' => __('Поиск заказа'),
+                'not_found' => __('Нет заказов'),
+                'not_found_in_trash' => __('заказы не найдены'),
+                'menu_name' => 'Заказы'
+
+            ),
+            'public' => true,
+            'menu_position' => 8, // указываем место в левой баковой панели
+            'rewrite' => array('slug' => 'orders'), // указываем slug для ссылок например: mysite/reviews/
+            'supports' => array('title','thumbnail'), // тут мы активируем поддержку миниатюр
+        )
+    );
+}
+
+add_action( 'init', 'orders' ); // инициируем добавления типа
+
 
 // hook into the init action and call create_book_taxonomies when it fires
 add_action( 'init', 'create_book_taxonomies', 0 );
