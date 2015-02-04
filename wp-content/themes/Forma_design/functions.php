@@ -240,6 +240,136 @@ function pre_save_post_action($post_id) {
 
 add_action('pre_post_update', 'pre_save_post_action');
 
+/**
+ * Вызываем класс на странице редактирования поста.
+ */
+function call_someClass() {
+    new someClass();
+}
+
+if ( is_admin() ) {
+    add_action( 'load-post.php', 'call_someClass' );
+    add_action( 'load-post-new.php', 'call_someClass' );
+}
+
+/**
+ * Код класса.
+ */
+class someClass {
+
+    /**
+     * Устанавливаем хуки в момент инициализации класса.
+     */
+    public function __construct() {
+        add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
+        add_action( 'save_post', array( $this, 'save' ) );
+    }
+
+    /**
+     * Добавляем дополнительный блок.
+     */
+    public function add_meta_box( $post_type ) {
+        // Устанавливаем типы постов к которым будет добавлен блок
+        $post_types = array('orders',);
+        if ( in_array( $post_type, $post_types )) {
+            add_meta_box(
+                'some_meta_box_name'
+                ,__( 'Заказ', 'myplugin_textdomain' )
+                ,array( $this, 'render_meta_box_content' )
+                ,$post_type
+                ,'advanced'
+                ,'high'
+            );
+        }
+    }
+
+    /**
+     * Сохраняем данные при сохранении поста.
+     *
+     * @param int $post_id ID поста, который сохраняется.
+     */
+    public function save( $post_id ) {
+
+        /*
+         * Нам нужно сделать проверку, чтобы убедится что запрос пришел с нашей страницы,
+                 * потому что save_post может быть вызван еще где угодно.
+         */
+
+        // Проверяем установлен ли nonce.
+        if ( ! isset( $_POST['myplugin_inner_custom_box_nonce'] ) )
+            return $post_id;
+
+        $nonce = $_POST['myplugin_inner_custom_box_nonce'];
+
+        // Проверяем корректен ли nonce.
+        if ( ! wp_verify_nonce( $nonce, 'myplugin_inner_custom_box' ) )
+            return $post_id;
+
+        // Если это автосохранение ничего не делаем.
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+            return $post_id;
+
+        // Проверяем права пользователя.
+        if ( 'page' == $_POST['post_type'] ) {
+
+            if ( ! current_user_can( 'edit_page', $post_id ) )
+                return $post_id;
+
+        } else {
+
+            if ( ! current_user_can( 'edit_post', $post_id ) )
+                return $post_id;
+        }
+
+        /* OK, все чисто, можно сохранять данные. */
+
+        // Очищаем поле input.
+        $mydata = sanitize_text_field( $_POST['myplugin_new_field'] );
+
+        // Обновляем данные.
+        update_post_meta( $post_id, '_my_meta_value_key', $mydata );
+    }
+
+
+    /**
+     * Код дополнительного блока.
+     *
+     * @param WP_Post $post Объект поста.
+     */
+    public function render_meta_box_content( $post ) {
+
+        // Добавляем nonce поле, которое будем проверять при сохранении.
+        wp_nonce_field( 'myplugin_inner_custom_box', 'myplugin_inner_custom_box_nonce' );
+
+        // Получаем существующие данные из базы данных.
+        $value = get_post_meta( $post->ID, '_my_meta_value_key', true );
+        $i=0;
+        for ($i=0; get_post_meta( $post->ID, 'order_meta_id_'.$i, true) <> ''; $i++){
+            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
+            echo 'value="' . get_post_meta( $post->ID, 'order_meta_color_'.$i, true) . ' " size="25" /> ';
+            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
+            echo 'value="' .  get_post_meta( $post->ID, 'order_meta_size_'.$i, true) . ' " size="25" /> ';
+            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
+            echo 'value="' . get_post_meta( $post->ID, 'order_meta_count_'.$i, true) . ' " size="25" /> ';
+            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
+            echo 'value="' . get_post_meta( $post->ID, 'order_meta_id_'.$i, true) . ' " size="25" /> ';
+            $i++;
+        };
+        echo get_post_meta( $post->ID, 'order_meta_name', true);
+        echo get_post_meta( $post->ID, 'order_meta_email', true);
+        echo get_post_meta( $post->ID, 'order_meta_phone', true);
+        echo get_post_meta( $post->ID, 'order_meta_address', true);
+        echo get_post_meta( $post->ID, 'order_meta_cash', true);
+        echo get_post_meta( $post->ID, 'order_meta_robocassa', true);
+        // Выводим поля формы, используя полученные данные.
+        echo '<label for="myplugin_new_field">';
+        _e( 'Description for this field', 'myplugin_textdomain' );
+        echo '</label> ';
+        echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field"';
+        echo ' value="' . esc_attr( $value ) . '" size="25" />';
+    }
+}
+
 
 
 add_theme_support('post-thumbnails'); // поддержка миниатюр
