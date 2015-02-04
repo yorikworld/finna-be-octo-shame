@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Фев 04 2015 г., 17:25
+-- Время создания: Фев 04 2015 г., 17:34
 -- Версия сервера: 5.5.41-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.5
 
@@ -494,7 +494,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2381 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2383 ;
 
 --
 -- Дамп данных таблицы `wp_postmeta`
@@ -844,7 +844,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (2377, 125, '_edit_lock', '1422828762:1'),
 (2378, 57, '_edit_lock', '1423058508:1'),
 (2379, 57, '_edit_last', '1'),
-(2380, 11, '_edit_lock', '1423058662:1');
+(2380, 11, '_edit_lock', '1423063771:1');
 
 -- --------------------------------------------------------
 
@@ -881,7 +881,7 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=127 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=128 ;
 
 --
 -- Дамп данных таблицы `wp_posts`
