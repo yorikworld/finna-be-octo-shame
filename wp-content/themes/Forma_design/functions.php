@@ -336,37 +336,80 @@ class someClass {
      *
      * @param WP_Post $post Объект поста.
      */
-    public function render_meta_box_content( $post ) {
+    public function render_meta_box_content($post)
+    {
 
         // Добавляем nonce поле, которое будем проверять при сохранении.
-        wp_nonce_field( 'myplugin_inner_custom_box', 'myplugin_inner_custom_box_nonce' );
+        wp_nonce_field('myplugin_inner_custom_box', 'myplugin_inner_custom_box_nonce');
 
         // Получаем существующие данные из базы данных.
-        $value = get_post_meta( $post->ID, '_my_meta_value_key', true );
-        $i=0;
-        for ($i=0; get_post_meta( $post->ID, 'order_meta_id_'.$i, true) <> ''; $i++){
-            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
-            echo 'value="' . get_post_meta( $post->ID, 'order_meta_color_'.$i, true) . ' " size="25" /> ';
-            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
-            echo 'value="' .  get_post_meta( $post->ID, 'order_meta_size_'.$i, true) . ' " size="25" /> ';
-            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
-            echo 'value="' . get_post_meta( $post->ID, 'order_meta_count_'.$i, true) . ' " size="25" /> ';
-            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
-            echo 'value="' . get_post_meta( $post->ID, 'order_meta_id_'.$i, true) . ' " size="25" /> ';
-            $i++;
+        $value = get_post_meta($post->ID, '_my_meta_value_key', true);
+        $i = 0;
+        for ($i = 0; get_post_meta($post->ID, 'order_meta_id_' . $i, true) <> ''; $i++) {
+            $originalpost_id = get_post_meta($post->ID, 'order_meta_id_' . $i, true);
+            $originalpost_color = get_post_meta($post->ID, 'order_meta_color_' . $i, true);
+            $originalpost_size = get_post_meta($post->ID, 'order_meta_size_' . $i, true);
+            $originalpost_count = get_post_meta( $post->ID, 'order_meta_count_'.$i, true);
+            $originalpost_price = get_post_meta( $post->ID, 'order_meta_price_'.$i, true);
+            ?>
+            <ul style="height: 200px;margin: 10px">
+            <b><?php echo get_the_title($originalpost_id);?></b>
+            <div style="float: left;margin-right: 10px ">
+                <a href="<?php echo post_permalink($originalpost_id); ?>">
+                    <img
+                        src="/timthumb.php?src=<?php echo wp_get_attachment_url(get_post_thumbnail_id($originalpost_id)) ?
+                            wp_get_attachment_url(get_post_thumbnail_id($originalpost_id)) :
+                            "/wp-content/uploads/noimage.jpg";?>&w=120&h=196&a=tc"/></a>
+            </div>
+            <div>
+                <div><p>Цвет: <select name="color">
+                        <?php foreach (simple_fields_fieldgroup("color", $originalpost_id) as $color) { ?>
+                            <?php if ($color == $originalpost_color) {
+                                echo "<option selected='selected'> $color </option>";
+                            } else {
+                                echo "<option> $color </option>";
+                            };
+                        }; ?>
+                    </select></p>
+                </div>
+                <div>
+                    <p>Размер: <select name="size">
+                        <?php foreach (simple_fields_fieldgroup("sizes_slug", $originalpost_id) as $size) { ?>
+                            <?php if ($size == $originalpost_size) {
+                                echo "<option selected='selected'> $size </option>";
+                            } else {
+                                echo "<option> $size </option>";
+                            };
+                        }; ?>
+                    </select></p>
+                </div>
+                <div> <p>Количество: <?php echo $originalpost_count; ?></p></div>
+                <p>Цена: <?php echo $originalpost_price; $summ_price = $summ_price + $originalpost_price * $originalpost_count;?> </p>
+            </div>
+            </ul><?php
+//            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
+//            echo 'value="' . get_post_meta( $post->ID, 'order_meta_color_'.$i, true) . ' " size="25" /> ';
+//            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
+//            echo 'value="' .  get_post_meta( $post->ID, 'order_meta_size_'.$i, true) . ' " size="25" /> ';
+//            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
+//            echo 'value="' . get_post_meta( $post->ID, 'order_meta_count_'.$i, true) . ' " size="25" /> ';
+//            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
+//            echo 'value="' . get_post_meta( $post->ID, 'order_meta_id_'.$i, true) . ' " size="25" /> ';
+//            $i++;
         };
-        echo get_post_meta( $post->ID, 'order_meta_name', true);
-        echo get_post_meta( $post->ID, 'order_meta_email', true);
-        echo get_post_meta( $post->ID, 'order_meta_phone', true);
-        echo get_post_meta( $post->ID, 'order_meta_address', true);
-        echo get_post_meta( $post->ID, 'order_meta_cash', true);
-        echo get_post_meta( $post->ID, 'order_meta_robocassa', true);
+        echo "Общая сумма: " .$summ_price;
+        echo get_post_meta($post->ID, 'order_meta_name', true);
+        echo get_post_meta($post->ID, 'order_meta_email', true);
+        echo get_post_meta($post->ID, 'order_meta_phone', true);
+        echo get_post_meta($post->ID, 'order_meta_address', true);
+        echo get_post_meta($post->ID, 'order_meta_cash', true);
+        echo get_post_meta($post->ID, 'order_meta_robocassa', true);
         // Выводим поля формы, используя полученные данные.
-        echo '<label for="myplugin_new_field">';
-        _e( 'Description for this field', 'myplugin_textdomain' );
-        echo '</label> ';
-        echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field"';
-        echo ' value="' . esc_attr( $value ) . '" size="25" />';
+//        echo '<label for="myplugin_new_field">';
+//        _e( 'Description for this field', 'myplugin_textdomain' );
+//        echo '</label> ';
+//        echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field"';
+//        echo ' value="' . esc_attr( $value ) . '" size="25" />';
     }
 }
 
