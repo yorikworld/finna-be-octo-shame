@@ -29,10 +29,8 @@
        print_r (json_encode($delete));
         echo '</pre>';
     unset ($_SESSION['product'][(json_encode($delete))]);
+        if (empty($_SESSION['product'])){ unset ($_SESSION['product']); }
     };
-    if (isset($_POST['make-order'])) {
-
-    }
 
 //unset($_SESSION['product']);
     echo '<pre>';

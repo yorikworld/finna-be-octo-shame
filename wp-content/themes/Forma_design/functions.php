@@ -383,8 +383,10 @@ class someClass {
                         }; ?>
                     </select></p>
                 </div>
-                <div> <p>Количество: <?php echo $originalpost_count; ?></p></div>
-                <p>Цена: <?php echo $originalpost_price; $summ_price = $summ_price + $originalpost_price * $originalpost_count;?> </p>
+                <div> <p>Количество: <input type="text" id="myplugin_new_field" name="myplugin_new_field" value="<?php echo $originalpost_count; ?>" size="3" /> </p>
+                <p style="float: left;">Цена: <?php echo $originalpost_price; $summ_price = $summ_price + $originalpost_price * $originalpost_count;?></p>
+                <button  style="float: right" class="preview button" >Удалить</button>
+                </div>
             </div>
             </ul><?php
 //            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
@@ -396,20 +398,25 @@ class someClass {
 //            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
 //            echo 'value="' . get_post_meta( $post->ID, 'order_meta_id_'.$i, true) . ' " size="25" /> ';
 //            $i++;
-        };
-        echo "Общая сумма: " .$summ_price;
-        echo get_post_meta($post->ID, 'order_meta_name', true);
-        echo get_post_meta($post->ID, 'order_meta_email', true);
-        echo get_post_meta($post->ID, 'order_meta_phone', true);
-        echo get_post_meta($post->ID, 'order_meta_address', true);
-        echo get_post_meta($post->ID, 'order_meta_cash', true);
-        echo get_post_meta($post->ID, 'order_meta_robocassa', true);
-        // Выводим поля формы, используя полученные данные.
-//        echo '<label for="myplugin_new_field">';
-//        _e( 'Description for this field', 'myplugin_textdomain' );
-//        echo '</label> ';
-//        echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field"';
-//        echo ' value="' . esc_attr( $value ) . '" size="25" />';
+        };?>
+        <div>
+            <p><b>Общая сумма: <?php echo $summ_price; ?></b></p>
+            <hr>
+            <p><b>Информация о покупателе: </b></p>
+            <p>Ф.И.О: <?php echo get_post_meta($post->ID, 'order_meta_name', true); ?></p>
+            <p>E-mail: <?php echo get_post_meta($post->ID, 'order_meta_email', true); ?></p>
+            <p>Телефон: <?php echo get_post_meta($post->ID, 'order_meta_phone', true); ?> </p>
+            <p>Адресс: <?php echo get_post_meta($post->ID, 'order_meta_address', true); ?></p>
+            <p>Способ оплаты: <?php if(get_post_meta($post->ID, 'order_meta_cash', true)){echo "Наличные";}
+                elseif(get_post_meta($post->ID, 'order_meta_robocassa', true)){ echo "Робокосса";}
+                else {echo "Не извесно";};?></p>
+            <p>Способ доставки: <?php if(get_post_meta($post->ID, 'order_meta_courier', true)){echo "Курьер";}
+                elseif(get_post_meta($post->ID, 'order_meta_pickup', true)){ echo "Самовывоз";}
+                else {echo "Не извесно";};?></p>
+
+        </div>
+
+        <?php
     }
 }
 

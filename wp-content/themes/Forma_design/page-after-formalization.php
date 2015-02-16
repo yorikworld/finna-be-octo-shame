@@ -21,6 +21,8 @@ if (isset($_POST['finish-order'])&&!empty($_POST['finish-order'])) {
     update_post_meta( $post_id, 'order_meta_address', $_POST['finish-order']['address']);
     update_post_meta( $post_id, 'order_meta_cash', $_POST['finish-order']['cash']);
     update_post_meta( $post_id, 'order_meta_robocassa', $_POST['finish-order']['robocassa']);
+    update_post_meta( $post_id, 'order_meta_courier', $_POST['finish-order']['courier']);
+    update_post_meta( $post_id, 'order_meta_pickup', $_POST['finish-order']['pickup']);
 };
 ?>
         <div class="content">
