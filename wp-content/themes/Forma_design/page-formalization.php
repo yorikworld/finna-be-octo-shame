@@ -1,4 +1,4 @@
-<?php if(!isset($_SESSION['product'])){ wp_redirect( home_url(),302 );}?>
+<?php //if(!isset($_SESSION['product'])){ wp_redirect( home_url(),302 );}?>
 <?php get_header();?>
         <div class="content">
             <div class="wrapper">
