@@ -395,9 +395,14 @@ class someClass {
                         }; ?>
                     </select></p>
                 </div>
-                <div> <p>Количество: <input type="text" id="myplugin_new_field" name="myplugin_new_field" value="<?php echo $originalpost_count; ?>" size="3" /> </p>
-                <p style="float: left;">Цена: <?php echo $originalpost_price; $summ_price = $summ_price + $originalpost_price * $originalpost_count;?></p>
-                <button name="button delete"  style="float: right" class="preview button" >Удалить</button>
+                <div>
+                    <p>Количество: <input type="text" id="myplugin_new_field" name="myplugin_new_field" value="<?php echo $originalpost_count; ?>" size="3" /> </p>
+                    <p style="float: left;">Цена: <?php echo $originalpost_price; $summ_price = $summ_price + $originalpost_price * $originalpost_count;?></p>
+                    <form method="post">
+                        <input type="hidden" name="order_id" value="<?php echo $post->ID ?>" />
+                        <input type="hidden" name="post_id" value="<?php echo $originalpost_id ?>" />
+                        <button name="delete_from_order"  style="float: right" class="preview button" >Удалить</button>
+                    </form>
                 </div>
             </div>
 
