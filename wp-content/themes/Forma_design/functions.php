@@ -240,6 +240,24 @@ function pre_save_post_action($post_id) {
 
 add_action('pre_post_update', 'pre_save_post_action');
 
+
+function delete_from_order() {
+    if (isset($_POST['delete_from_order']) && !empty($_POST['delete_from_order'])){
+        echo "<pre>";
+        var_dump($_POST);
+        echo "</pre>";
+        $del_post = json_encode($_POST['delete_from_order']['post']);
+        $ordermeta = get_post_meta($_POST['delete_from_order']['order_id'], 'order_meta_key', true);
+        unset($ordermeta[$del_post]);
+        update_post_meta( $_POST['delete_from_order']['order_id'], 'order_meta_key', $ordermeta);
+    };
+
+}
+add_action( 'admin_init', 'delete_from_order' );
+
+
+
+
 /**
  * Вызываем класс на странице редактирования поста.
  */
@@ -250,6 +268,7 @@ function call_someClass() {
 if ( is_admin() ) {
     add_action( 'load-post.php', 'call_someClass' );
     add_action( 'load-post-new.php', 'call_someClass' );
+//    add_action( 'admin_init', 'check_in_order', 1 );
 }
 
 /**
@@ -283,11 +302,6 @@ class someClass {
         }
     }
 
-    /**
-     * Сохраняем данные при сохранении поста.
-     *
-     * @param int $post_id ID поста, который сохраняется.
-     */
     public function save( $post_id ) {
 
         /*
@@ -344,7 +358,6 @@ class someClass {
 
         // Получаем существующие данные из базы данных.
         $value = get_post_meta($post->ID, 'order_meta_key', true);
-//        var_dump($value);
         foreach ($value as $key => $product) {
             $originalpost_id = $product['id'];
             $originalpost_color = $product['color'];
@@ -398,10 +411,13 @@ class someClass {
                 <div>
                     <p>Количество: <input type="text" id="myplugin_new_field" name="myplugin_new_field" value="<?php echo $originalpost_count; ?>" size="3" /> </p>
                     <p style="float: left;">Цена: <?php echo $originalpost_price; $summ_price = $summ_price + $originalpost_price * $originalpost_count;?></p>
+<!--                    <p style="float: left;">Цена: 0</p>-->
                     <form method="post">
-                        <input type="hidden" name="order_id" value="<?php echo $post->ID ?>" />
-                        <input type="hidden" name="post_id" value="<?php echo $originalpost_id ?>" />
-                        <button name="delete_from_order"  style="float: right" class="preview button" >Удалить</button>
+                        <input type="hidden" name="delete_from_order[post][<?php echo $originalpost_id ?>]" value="" />
+                        <input type="hidden" name="delete_from_order[post][<?php echo $originalpost_id ?>][color]" value="<?php echo $originalpost_color ?>" />
+                        <input type="hidden" name="delete_from_order[post][<?php echo $originalpost_id ?>][size]" value="<?php echo $originalpost_size ?>" />
+                        <input type="hidden" name="delete_from_order[order_id]" value="<?php echo $post->ID ?>" />
+                        <button style="float: right" class="preview button" >Удалить</button>
                     </form>
                 </div>
             </div>
@@ -434,11 +450,6 @@ class someClass {
                 else {echo "Не извесно";};?></p>
 
         </div>
-        <script>
-            jQuery( document ).ready(function() {
-
-            });
-        </script>
         <?php
     }
 }
