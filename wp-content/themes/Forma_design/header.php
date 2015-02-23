@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="keywords" />
     <meta name="description" content="description" />
+<!--    <script type='text/javascript' src='--><?php //echo get_bloginfo( 'stylesheet_directory') ?><!--/js/jquery-1.9.1.min.js'></script>-->
     <?php wp_head();
     session_start();
     echo '<pre>';

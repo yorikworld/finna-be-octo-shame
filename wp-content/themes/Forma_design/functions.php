@@ -232,29 +232,13 @@ function content($limit) {
 function pre_save_post_action($post_id) {
     if($_POST['post_type'] == "products"){
     if($_POST['simple_fields_fieldgroups']['7']['1'] == null){
-    echo "<script> alert('Заполените обязательное поле цвет'); javascript:history.go(-1) </script>"; die();}
+    echo "<script> alert('Заполните обязательное поле цвет'); javascript:history.go(-1) </script>"; die();}
     if($_POST['simple_fields_fieldgroups']['6']['2'] == null){
-        echo "<script> alert('Заполените обязательное поле размер'); javascript:history.go(-1) </script>"; die();}
+        echo "<script> alert('Заполните обязательное поле размер'); javascript:history.go(-1) </script>"; die();}
     }
 }
 
 add_action('pre_post_update', 'pre_save_post_action');
-
-
-function delete_from_order() {
-    if (isset($_POST['delete_from_order']) && !empty($_POST['delete_from_order'])){
-        echo "<pre>";
-        var_dump($_POST);
-        echo "</pre>";
-        $del_post = json_encode($_POST['delete_from_order']['post']);
-        $ordermeta = get_post_meta($_POST['delete_from_order']['order_id'], 'order_meta_key', true);
-        unset($ordermeta[$del_post]);
-        update_post_meta( $_POST['delete_from_order']['order_id'], 'order_meta_key', $ordermeta);
-    };
-
-}
-add_action( 'admin_init', 'delete_from_order' );
-
 
 
 
@@ -335,13 +319,14 @@ class someClass {
                 return $post_id;
         }
 
-        /* OK, все чисто, можно сохранять данные. */
-
-        // Очищаем поле input.
-        $mydata = sanitize_text_field( $_POST['myplugin_new_field'] );
-
-        // Обновляем данные.
-        update_post_meta( $post_id, '_my_meta_value_key', $mydata );
+        foreach($_POST['upd_product']['post'] as $key => $value){
+            $var = array($key => array("color"=>$_POST['upd_product']['post'][$key]['color'], "size"=>$_POST['upd_product']['post'][$key]['size']));
+            $json=json_encode($var);
+            $_POST['upd_product']['post'][$json]=$_POST['upd_product']['post'][$key];
+            unset($_POST['upd_product']['post'][$key]);
+            echo $key;
+        };
+        update_post_meta( $post_id, 'order_meta_key', $_POST['upd_product']['post'] );
     }
 
 
@@ -353,31 +338,26 @@ class someClass {
     public function render_meta_box_content($post)
     {
 
-        // Добавляем nonce поле, которое будем проверять при сохранении.
-        wp_nonce_field('myplugin_inner_custom_box', 'myplugin_inner_custom_box_nonce');
+        wp_nonce_field('myplugin_inner_custom_box', 'myplugin_inner_custom_box_nonce');?>
 
-        // Получаем существующие данные из базы данных.
-        $value = get_post_meta($post->ID, 'order_meta_key', true);
+        <script>
+    jQuery( document ).ready(function() {
+        jQuery(".delete_product").click(function(){
+            jQuery(this).parents("ul.item_product").remove();
+        });
+    });
+
+        </script>
+
+        <?php $value = get_post_meta($post->ID, 'order_meta_key', true);
         foreach ($value as $key => $product) {
             $originalpost_id = $product['id'];
             $originalpost_color = $product['color'];
             $originalpost_size = $product['size'];
             $originalpost_count = $product['count'];
             $originalpost_price = simple_fields_fieldgroup("price", $product['id']);
-//            var_dump($product);
-
-
-
-
-
-//        for ($i = 0; get_post_meta($post->ID, 'order_meta_id_' . $i, true) <> ''; $i++) {
-//            $originalpost_id = get_post_meta($post->ID, 'order_meta_id_' . $i, true);
-//            $originalpost_color = get_post_meta($post->ID, 'order_meta_color_' . $i, true);
-//            $originalpost_size = get_post_meta($post->ID, 'order_meta_size_' . $i, true);
-//            $originalpost_count = get_post_meta( $post->ID, 'order_meta_count_'.$i, true);
-//            $originalpost_price = get_post_meta( $post->ID, 'order_meta_price_'.$i, true);
             ?>
-            <ul style="height: 200px;margin: 10px">
+            <ul class="item_product" style="height: 200px;margin: 10px">
             <b><?php echo get_the_title($originalpost_id);?></b>
             <div style="float: left;margin-right: 10px ">
                 <a href="<?php echo post_permalink($originalpost_id); ?>">
@@ -387,7 +367,8 @@ class someClass {
                             "/wp-content/uploads/noimage.jpg";?>&w=120&h=196&a=tc"/></a>
             </div>
             <div>
-                <div><p>Цвет: <select name="color">
+                <div>
+                    <p>Цвет: <select name="upd_product[post][<?php echo $originalpost_id ?>][color]">
                         <?php foreach (simple_fields_fieldgroup("color", $originalpost_id) as $color) { ?>
                             <?php if ($color == $originalpost_color) {
                                 echo "<option selected='selected'> $color </option>";
@@ -398,7 +379,7 @@ class someClass {
                     </select></p>
                 </div>
                 <div>
-                    <p>Размер: <select name="size">
+                    <p>Размер: <select name="upd_product[post][<?php echo $originalpost_id ?>][size]">
                         <?php foreach (simple_fields_fieldgroup("sizes_slug", $originalpost_id) as $size) { ?>
                             <?php if ($size == $originalpost_size) {
                                 echo "<option selected='selected'> $size </option>";
@@ -409,29 +390,22 @@ class someClass {
                     </select></p>
                 </div>
                 <div>
-                    <p>Количество: <input type="text" id="myplugin_new_field" name="myplugin_new_field" value="<?php echo $originalpost_count; ?>" size="3" /> </p>
+                    <p>Количество: <input type="text" name="upd_product[post][<?php echo $originalpost_id ?>][count]" value="<?php echo $originalpost_count; ?>" size="3" /> </p>
+                    <input type="hidden" name="upd_product[post][<?php echo $originalpost_id ?>][id]" value="<?php echo $originalpost_id ?>" />
                     <p style="float: left;">Цена: <?php echo $originalpost_price; $summ_price = $summ_price + $originalpost_price * $originalpost_count;?></p>
-<!--                    <p style="float: left;">Цена: 0</p>-->
-                    <form method="post">
-                        <input type="hidden" name="delete_from_order[post][<?php echo $originalpost_id ?>]" value="" />
-                        <input type="hidden" name="delete_from_order[post][<?php echo $originalpost_id ?>][color]" value="<?php echo $originalpost_color ?>" />
-                        <input type="hidden" name="delete_from_order[post][<?php echo $originalpost_id ?>][size]" value="<?php echo $originalpost_size ?>" />
-                        <input type="hidden" name="delete_from_order[order_id]" value="<?php echo $post->ID ?>" />
-                        <button style="float: right" class="preview button" >Удалить</button>
-                    </form>
+                        <div>
+                            <input disabled type="hidden" name="delete_from_order[post][<?php echo $originalpost_id ?>]" value="" />
+                            <input disabled type="hidden" name="delete_from_order[post][<?php echo $originalpost_id ?>][color]" value="<?php echo $originalpost_color ?>" />
+                            <input disabled type="hidden" name="delete_from_order[post][<?php echo $originalpost_id ?>][size]" value="<?php echo $originalpost_size ?>" />
+                            <input disabled type="hidden" name="delete_from_order[order_id]" value="<?php echo $post->ID ?>" />
+                            <button style="float: right" class="delete_product" >Удалить</button>
+                        </div>
+
                 </div>
             </div>
 
             </ul><?php
-//            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
-//            echo 'value="' . get_post_meta( $post->ID, 'order_meta_color_'.$i, true) . ' " size="25" /> ';
-//            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
-//            echo 'value="' .  get_post_meta( $post->ID, 'order_meta_size_'.$i, true) . ' " size="25" /> ';
-//            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
-//            echo 'value="' . get_post_meta( $post->ID, 'order_meta_count_'.$i, true) . ' " size="25" /> ';
-//            echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" ';
-//            echo 'value="' . get_post_meta( $post->ID, 'order_meta_id_'.$i, true) . ' " size="25" /> ';
-//            $i++;
+
         };?>
 
         <div>
@@ -444,10 +418,10 @@ class someClass {
             <p>Адресс: <?php echo get_post_meta($post->ID, 'order_meta_address', true); ?></p>
             <p>Способ оплаты: <?php if(get_post_meta($post->ID, 'order_meta_cash', true)){echo "Наличные";}
                 elseif(get_post_meta($post->ID, 'order_meta_robocassa', true)){ echo "Робокосса";}
-                else {echo "Не извесно";};?></p>
+                else {echo "Неизвестно";};?></p>
             <p>Способ доставки: <?php if(get_post_meta($post->ID, 'order_meta_courier', true)){echo "Курьер";}
                 elseif(get_post_meta($post->ID, 'order_meta_pickup', true)){ echo "Самовывоз";}
-                else {echo "Не извесно";};?></p>
+                else {echo "Неизвестно";};?></p>
 
         </div>
         <?php
@@ -456,5 +430,5 @@ class someClass {
 
 
 
-add_theme_support('post-thumbnails'); // поддержка миниатюр
+add_theme_support('post-thumbnails');
 set_post_thumbnail_size(288, 177, false);
